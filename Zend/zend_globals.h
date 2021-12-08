@@ -143,9 +143,10 @@ struct _zend_executor_globals {//全局变量，在main()执行前分配
 	zend_array **symtable_cache_limit;
 	zend_array **symtable_cache_ptr;
 
-	zend_array symbol_table;		// PHP全局变量hash表:$_GET/$_POST等
+	zend_array symbol_table;		//// PHP全局变量hash表 函数外、类外定义的变量（包括$_GET/$_POST等）
+                                    //// 销毁(php_request_shutdown->zend_call_destructors->shutdown_destructors)
 
-	HashTable included_files;	    //已经include的脚本
+	HashTable included_files;	    //// 已经include的脚本
 
 	JMP_BUF *bailout;               //try-catch保存的catch跳转位置
 
@@ -154,7 +155,9 @@ struct _zend_executor_globals {//全局变量，在main()执行前分配
 
 	HashTable *function_table;	    //全部已编译的function哈希表，包括内部函数、用户自定义函数，函数调用将从这里查找
 	HashTable *class_table;		    //全部已编译的class哈希表，new class时从此处查找
-	HashTable *zend_constants;	    //常量符号表
+	HashTable *zend_constants;	    //// 常量符号表define()函数定义，分为持久化常量和非持久化常量
+	                                //// 非持久化常量销毁：php_request_shutdown->zend_deactivate->shutdown_executor->clean_non_persistent_constants
+	                                //// 持久化常量销毁：php_module_shutdown
 
 	zval          *vm_stack_top;
 	zval          *vm_stack_end;
@@ -181,8 +184,8 @@ struct _zend_executor_globals {//全局变量，在main()执行前分配
 #endif
 
 	HashTable regular_list;
-	HashTable persistent_list;                      //持久化符号表，request请求结束后不释放，可以跨request共享，在php_module_shutdown阶段清理
-	                                                //网络通信应用中的长链接的实现就可以将连接存到这里维持共享
+	HashTable persistent_list;                      //// 持久化符号表，request请求结束后不释放，可以跨request共享，在php_module_shutdown阶段清理
+	                                                //// 网络通信应用中的长链接的实现就可以将连接存到这里维持共享，redis->pconnect,pdo-mysql长链接等
 
 	int user_error_handler_error_reporting;
 	zval user_error_handler;

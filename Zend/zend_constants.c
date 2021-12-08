@@ -152,7 +152,7 @@ int zend_shutdown_constants(void)
 	return SUCCESS;
 }
 
-
+// 清空非持久化常量，持久化常量是在php_module_shutdown()阶段销毁的
 void clean_non_persistent_constants(void)
 {
 	if (EG(full_tables_cleanup)) {
