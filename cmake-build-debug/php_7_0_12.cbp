@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="php_7_0_12"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="makefile">
+				<Option working_dir="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 makefile"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="php">
+				<Option output="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/php" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/pear"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/TSRM"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 php"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="php/fast">
+				<Option output="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/php" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/pear"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/TSRM"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 php/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_API.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_API.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_alloc.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_alloc.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ast.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ast.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_builtin_functions.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_builtin_functions.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_closures.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_closures.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_compile.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_compile.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_constants.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_constants.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_default_classes.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_dtrace.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_dtrace.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_exceptions.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_exceptions.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_execute.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_execute.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_execute_API.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_extensions.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_extensions.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_float.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_float.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_gc.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_gc.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_generators.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_generators.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_hash.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_hash.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_highlight.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_highlight.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_inheritance.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_inheritance.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ini.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ini.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ini_parser.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ini_parser.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ini_scanner.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ini_scanner.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_interfaces.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_interfaces.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_iterators.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_iterators.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_language_parser.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_language_parser.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_language_scanner.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_language_scanner.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_list.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_list.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_llist.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_llist.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_multibyte.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_multibyte.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_object_handlers.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_object_handlers.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_objects.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_objects.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_objects_API.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_objects_API.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_opcode.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_operators.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_operators.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ptr_stack.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ptr_stack.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_signal.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_signal.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_smart_str.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_smart_str.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_sort.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_sort.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_sprintf.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_stack.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_stack.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_stream.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_stream.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_string.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_string.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_strtod.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_strtod.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ts_hash.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_ts_hash.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_variables.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_variables.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_virtual_cwd.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_virtual_cwd.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_vm_opcodes.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend/zend_vm_opcodes.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/curl_file.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/interface.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/multi.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/share.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_api.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_driver.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_embedded.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_exception.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_nonapi.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_prop.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_report.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_result_iterator.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_warning.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_alloc.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_alloc.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_auth.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_block_alloc.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_block_alloc.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_charset.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_charset.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_debug.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_debug.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_driver.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_ext_plugin.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_ext_plugin.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_loaddata.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_net.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_net.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_plugin.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_ps.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_ps_codec.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_result.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_result.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_result_meta.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_result_meta.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_reverse_api.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_reverse_api.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_statistics.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_statistics.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_wireprotocol.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_wireprotocol.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/php_mysqlnd.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/php_mysqlnd.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_dbh.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_sql_parser.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_sqlstate.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_stmt.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_driver.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_statement.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/pdo_mysql.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/array.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/assert.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/base64.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/base64.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/basic_functions.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/basic_functions.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/browscap.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crc32.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crc32.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/credits.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/credits.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt_blowfish.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt_blowfish.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt_freesec.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt_freesec.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt_sha256.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/crypt_sha512.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/css.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/css.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/cyr_convert.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/cyr_convert.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/datetime.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/datetime.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/dir.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/dl.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/dl.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/dns.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/exec.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/exec.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/file.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/file.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/filestat.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/filters.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/flock_compat.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/flock_compat.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/formatted_print.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/fsock.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/fsock.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/ftok.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/ftp_fopen_wrapper.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/head.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/head.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/html.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/html.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/http.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/http_fopen_wrapper.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/image.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/incomplete_class.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/info.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/info.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/iptc.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/lcg.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/levenshtein.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/link.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/mail.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/math.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/md5.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/md5.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/metaphone.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/microtime.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/microtime.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/pack.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/pack.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/pageinfo.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/pageinfo.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/password.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/php_crypt_r.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/php_crypt_r.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/php_fopen_wrapper.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/proc_open.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/proc_open.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/quot_print.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/quot_print.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/rand.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/random.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/scanf.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/scanf.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/sha1.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/sha1.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/soundex.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/streamsfuncs.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/streamsfuncs.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/string.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/strnatcmp.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/syslog.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/type.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/uniqid.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/uniqid.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/url.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/url.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/url_scanner_ex.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/url_scanner_ex.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/user_filters.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/uuencode.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/var.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/var_unserializer.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/versioning.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/SAPI.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/SAPI.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/alloca.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/fastcgi.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/fastcgi.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/fopen_wrappers.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/fopen_wrappers.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/getopt.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/internal_functions.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/internal_functions_cli.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/main.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/mergesort.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/network.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/output.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_content_types.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_content_types.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_ini.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_ini.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_open_temporary_file.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_open_temporary_file.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_scandir.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_scandir.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_sprintf.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_ticks.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_ticks.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_variables.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/php_variables.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/reentrancy.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/rfc1867.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/rfc1867.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/snprintf.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/snprintf.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/spprintf.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/spprintf.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/strlcat.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main/strlcpy.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/cli/php_cli.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/cli/ps_title.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/cli/ps_title.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_children.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_children.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_conf.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_conf.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_events.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_events.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_main.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_process_ctl.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_process_ctl.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_request.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_request.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_scoreboard.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_scoreboard.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_signals.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_signals.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_sockets.c">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm/fpm_sockets.h">
+			<Option target="php"/>
+		</Unit>
+		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

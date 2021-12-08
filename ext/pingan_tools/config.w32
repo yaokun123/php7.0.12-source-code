@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("pingan_tools", "for pingan_tools support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("pingan_tools", "enable pingan_tools support", "no");
+
+if (PHP_PINGAN_TOOLS != "no") {
+	EXTENSION("pingan_tools", "pingan_tools.c", PHP_EXTNAME_SHARED, "/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1");
+}
+

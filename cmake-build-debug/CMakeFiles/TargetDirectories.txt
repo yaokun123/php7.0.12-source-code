@@ -1,0 +1,4 @@
+/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles/makefile.dir
+/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles/php.dir
