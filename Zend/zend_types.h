@@ -76,10 +76,10 @@ typedef uintptr_t zend_uintptr_t;
 #define ZEND_EXT_TLS
 #endif
 
-typedef struct _zend_object_handlers zend_object_handlers;
-typedef struct _zend_class_entry     zend_class_entry;
-typedef union  _zend_function        zend_function;
-typedef struct _zend_execute_data    zend_execute_data;
+typedef struct _zend_object_handlers zend_object_handlers;//// 对象操作handlers
+typedef struct _zend_class_entry     zend_class_entry;	//// 类
+typedef union  _zend_function        zend_function;		//// 函数
+typedef struct _zend_execute_data    zend_execute_data; //// 每个op_array执行都会分配一个zend_execute_data，相当于运行栈
 
 typedef struct _zval_struct     zval;					//// 变量
 

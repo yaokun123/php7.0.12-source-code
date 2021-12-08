@@ -405,6 +405,7 @@ typedef struct _zend_internal_function {
 
 #define ZEND_FN_SCOPE_NAME(function)  ((function) && (function)->common.scope ? ZSTR_VAL((function)->common.scope->name) : "")
 
+//// 函数结构
 union _zend_function {
 	zend_uchar type;	/* MUST be the first element of this struct! */
 
@@ -413,11 +414,11 @@ union _zend_function {
 		zend_uchar arg_flags[3]; /* bitset of arg_info.pass_by_reference */
 		uint32_t fn_flags;
 		zend_string *function_name;
-		zend_class_entry *scope;            //成员方法所属类，面向对象实现中用到
+		zend_class_entry *scope;                //// 成员方法所属类，面向对象实现中用到
 		union _zend_function *prototype;
-		uint32_t num_args;                  //参数数量
-		uint32_t required_num_args;         //必传参数数量
-		zend_arg_info *arg_info;            //参数还有其它的信息，这些信息通过zend_arg_info
+		uint32_t num_args;                      //// 参数数量
+		uint32_t required_num_args;             //// 必传参数数量
+		zend_arg_info *arg_info;                //// 参数还有其它的信息，这些信息通过zend_arg_info
 		//每个参数都有一个zend_arg_info结构，所有参数的结构保存在zend_op_array.arg_info数组中
 		//zend_op_array.arg_info数组保存的并不全是输入参数，如果函数声明了返回值类型则也会为它创建一个zend_arg_info
 		//这个结构在arg_info数组的第一个位置，这种情况下zend_op_array.arg_info指向的实际是数组的第二个位置
@@ -426,8 +427,8 @@ union _zend_function {
 
 	//不管是用户函数还是内部函数，其最终都被注册到EG(function_table)中
 	//函数被调用时根据函数名称向这个符号表中查找。
-	zend_op_array op_array; //用户函数使用(函数实际编译为普通的zend_op_array)
-	zend_internal_function internal_function;   //内部函数使用
+	zend_op_array op_array;                     //// 用户函数使用(函数实际编译为普通的zend_op_array)
+	zend_internal_function internal_function;   //// 内部函数使用
 };
 
 typedef enum _zend_call_kind {

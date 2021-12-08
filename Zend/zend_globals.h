@@ -153,8 +153,8 @@ struct _zend_executor_globals {//全局变量，在main()执行前分配
 	int error_reporting;
 	int exit_status;
 
-	HashTable *function_table;	    //全部已编译的function哈希表，包括内部函数、用户自定义函数，函数调用将从这里查找
-	HashTable *class_table;		    //全部已编译的class哈希表，new class时从此处查找
+	HashTable *function_table;	    //// 全部已编译的function哈希表，包括内部函数、用户自定义函数，函数调用将从这里查找
+	HashTable *class_table;		    //// 全部已编译的class哈希表，new class时从此处查找
 	HashTable *zend_constants;	    //// 常量符号表define()函数定义，分为持久化常量和非持久化常量
 	                                //// 非持久化常量销毁：php_request_shutdown->zend_deactivate->shutdown_executor->clean_non_persistent_constants
 	                                //// 持久化常量销毁：php_module_shutdown
