@@ -437,6 +437,10 @@ typedef enum _zend_call_kind {
 	ZEND_CALL_TOP_CODE			/* direct VM call to "main" code from external C code */
 } zend_call_kind;
 
+// PHP中局部变量分配在zend_execute_data结构上，每次执行zend_op_array都会生成一个新的zend_execute_data，
+// 局部变量在执行之初分配，然后在执行结束时释放，这是局部变量的生命周期
+// 而局部变量中有一种特殊的类型：静态变量，它们不会在函数执行完后释放，当程序执行离开函数域时静态变量的值被保留下来，下次执行时仍然可以使用之前的值。
+// 静态变量既然不会随执行的结束而释放，那么很容易想到它的保存位置：zend_op_array->static_variables，这是一个哈希表
 struct _zend_execute_data {
 	const zend_op       *opline;           //executed opline（指向当前执行的opcode，初始指向zend_op_array起始位置）
 	zend_execute_data   *call;             /* current call                   */

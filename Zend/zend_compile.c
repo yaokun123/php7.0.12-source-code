@@ -3484,6 +3484,7 @@ static void zend_compile_static_var_common(zend_ast *var_ast, zval *value, zend_
 
 	zend_compile_expr(&var_node, var_ast);
 
+	// 首先判断当前编译的zend_op_array->static_variables是否已创建，未创建则分配一个HashTable，接着将定义的静态变量插入
 	if (!CG(active_op_array)->static_variables) {
 		if (CG(active_op_array)->scope) {
 			CG(active_op_array)->scope->ce_flags |= ZEND_HAS_STATIC_IN_METHODS;
@@ -3498,13 +3499,16 @@ static void zend_compile_static_var_common(zend_ast *var_ast, zval *value, zend_
 		}
 		CG(active_op_array)->static_variables = zend_array_dup(CG(active_op_array)->static_variables);
 	}
+    // 插入静态变量
 	zend_hash_update(CG(active_op_array)->static_variables, Z_STR(var_node.u.constant), value);
 
+    // 生成一条ZEND_FETCH_W的opcode
 	opline = zend_emit_op(&result, by_ref ? ZEND_FETCH_W : ZEND_FETCH_R, &var_node, NULL);
 	opline->extended_value = ZEND_FETCH_STATIC;
 
 	if (by_ref) {
 		zend_ast *fetch_ast = zend_ast_create(ZEND_AST_VAR, var_ast);
+        // 生成一条ZEND_ASSIGN_REF的opcode
 		zend_emit_assign_ref_znode(fetch_ast, &result);
 	} else {
 		zend_ast *fetch_ast = zend_ast_create(ZEND_AST_VAR, var_ast);
@@ -3513,15 +3517,16 @@ static void zend_compile_static_var_common(zend_ast *var_ast, zval *value, zend_
 }
 /* }}} */
 
+// 编译静态变量
 void zend_compile_static_var(zend_ast *ast) /* {{{ */
 {
 	zend_ast *var_ast = ast->child[0];
 	zend_ast *value_ast = ast->child[1];
 	zval value_zv;
 
-	if (value_ast) {
+	if (value_ast) {// 定义了初始值
 		zend_const_expr_to_zval(&value_zv, value_ast);
-	} else {
+	} else {// 无初始值
 		ZVAL_NULL(&value_zv);
 	}
 
