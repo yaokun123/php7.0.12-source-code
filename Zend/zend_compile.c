@@ -4480,6 +4480,7 @@ static void zend_compile_typename(zend_ast *ast, zend_arg_info *arg_info) /* {{{
 }
 /* }}} */
 
+//函数参数的编译
 void zend_compile_params(zend_ast *ast, zend_ast *return_type_ast) /* {{{ */
 {
 	zend_ast_list *list = zend_ast_get_list(ast);
@@ -4487,9 +4488,9 @@ void zend_compile_params(zend_ast *ast, zend_ast *return_type_ast) /* {{{ */
 	zend_op_array *op_array = CG(active_op_array);
 	zend_arg_info *arg_infos;
 	
-	if (return_type_ast) {
+	if (return_type_ast) {//声明了返回值类型
 		/* Use op_array->arg_info[-1] for return type */
-		arg_infos = safe_emalloc(sizeof(zend_arg_info), list->children + 1, 0);
+		arg_infos = safe_emalloc(sizeof(zend_arg_info), list->children + 1, 0);//多分配一个zend_arg_info
 		arg_infos->name = NULL;
 		arg_infos->pass_by_reference = (op_array->fn_flags & ZEND_ACC_RETURN_REFERENCE) != 0;
 		arg_infos->is_variadic = 0;
@@ -4499,9 +4500,9 @@ void zend_compile_params(zend_ast *ast, zend_ast *return_type_ast) /* {{{ */
 
 		zend_compile_typename(return_type_ast, arg_infos);
 
-		arg_infos++;
+		arg_infos++;                //// arg_infos指向了下一个位置
 		op_array->fn_flags |= ZEND_ACC_HAS_RETURN_TYPE;
-	} else {
+	} else {//没有声明返回值类型
 		if (list->children == 0) {
 			return;
 		}
@@ -4655,6 +4656,7 @@ void zend_compile_params(zend_ast *ast, zend_ast *return_type_ast) /* {{{ */
 	}
 
 	/* These are assigned at the end to avoid unitialized memory in case of an error */
+    //// 声明了返回值的情况下arg_infos已经指向了数组的第二个元素
 	op_array->num_args = list->children;
 	op_array->arg_info = arg_infos;
 
