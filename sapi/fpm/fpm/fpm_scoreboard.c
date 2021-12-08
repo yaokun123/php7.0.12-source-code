@@ -24,7 +24,7 @@ static float fpm_scoreboard_tick;
 
 int fpm_scoreboard_init_main() /* {{{ */
 {
-	struct fpm_worker_pool_s *wp;
+	struct fpm_worker_pool_s *wp;                                       // 进程池
 	unsigned int i;
 
 #ifdef HAVE_TIMES
@@ -41,32 +41,33 @@ int fpm_scoreboard_init_main() /* {{{ */
 #endif /* HAVE_TIMES */
 
 
-	for (wp = fpm_worker_all_pools; wp; wp = wp->next) {
+	for (wp = fpm_worker_all_pools; wp; wp = wp->next) {                // 遍历每一个进程池
 		size_t scoreboard_size, scoreboard_nprocs_size;
 		void *shm_mem;
 
-		if (wp->config->pm_max_children < 1) {
+		if (wp->config->pm_max_children < 1) {                          // 校验进程池中的pm_max_children最大进程数
 			zlog(ZLOG_ERROR, "[pool %s] Unable to create scoreboard SHM because max_client is not set", wp->config->name);
 			return -1;
 		}
 
-		if (wp->scoreboard) {
+		if (wp->scoreboard) {                                           // 初始化的时候fpm_scoreboard_s结构不应该存在
 			zlog(ZLOG_ERROR, "[pool %s] Unable to create scoreboard SHM because it already exists", wp->config->name);
 			return -1;
 		}
 
+		// 计算fpm_scoreboard_s结构空间，fpm_scoreboard_s.procs是一个 struct fpm_scoreboard_proc_s *结构体类型的数组
 		scoreboard_size        = sizeof(struct fpm_scoreboard_s) + (wp->config->pm_max_children) * sizeof(struct fpm_scoreboard_proc_s *);
-		scoreboard_nprocs_size = sizeof(struct fpm_scoreboard_proc_s) * wp->config->pm_max_children;
-		shm_mem                = fpm_shm_alloc(scoreboard_size + scoreboard_nprocs_size);
+		scoreboard_nprocs_size = sizeof(struct fpm_scoreboard_proc_s) * wp->config->pm_max_children;// fpm_scoreboard_proc_s结构真实内存，上面计算的是指针内存
+		shm_mem                = fpm_shm_alloc(scoreboard_size + scoreboard_nprocs_size);// 分配共享内存
 
 		if (!shm_mem) {
 			return -1;
 		}
-		wp->scoreboard         = shm_mem;
+		wp->scoreboard         = shm_mem;                                                   // 分配的共享内存复制给wp->scoreboard
 		wp->scoreboard->nprocs = wp->config->pm_max_children;
 		shm_mem               += scoreboard_size;
 
-		for (i = 0; i < wp->scoreboard->nprocs; i++, shm_mem += sizeof(struct fpm_scoreboard_proc_s)) {
+		for (i = 0; i < wp->scoreboard->nprocs; i++, shm_mem += sizeof(struct fpm_scoreboard_proc_s)) {// 每个worker进程初始化，wp->scoreboard->procs数组指针设置
 			wp->scoreboard->procs[i] = shm_mem;
 		}
 
