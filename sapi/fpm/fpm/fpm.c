@@ -57,9 +57,9 @@ int fpm_init(int argc, char **argv, char *config, char *prefix, char *pid, int t
 
 	if (0 > fpm_php_init_main()           ||
 	    0 > fpm_stdio_init_main()         ||
-	    0 > fpm_conf_init_main(test_conf, force_daemon) ||		//解析php-fpm.conf配置文件,分配worker pool内存结构并保存到全局变量中（fpm_worker_pool_s）
+	    0 > fpm_conf_init_main(test_conf, force_daemon) ||		//// 解析php-fpm.conf配置文件,分配worker pool内存结构并保存到全局变量中（fpm_worker_pool_s）
 	    0 > fpm_unix_init_main()          ||
-	    0 > fpm_scoreboard_init_main()    ||					//分配用于记录worker进程运行信息的共享内存，按照worker pool的最大worker进程数分配
+	    0 > fpm_scoreboard_init_main()    ||					//// 分配用于记录worker进程运行信息的共享内存，按照worker pool的最大worker进程数分配
 	    0 > fpm_pctl_init_main()          ||
 	    0 > fpm_env_init_main()           ||
 	    0 > fpm_signals_init_main()       ||					//master信号处理

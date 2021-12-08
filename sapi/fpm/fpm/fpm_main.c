@@ -1565,8 +1565,7 @@ static zend_module_entry cgi_module_entry = {
 	STANDARD_MODULE_PROPERTIES
 };
 
-/* {{{ main
- */
+// fpm的入口函数
 int main(int argc, char *argv[])
 {
 	int exit_status = FPM_EXIT_OK;
@@ -1616,7 +1615,7 @@ int main(int argc, char *argv[])
 	zend_signal_startup();
 #endif
 
-	sapi_startup(&cgi_sapi_module);                     //注册SAPI:将全局变量sapi_module设置为cgi_sapi_module
+	sapi_startup(&cgi_sapi_module);                     //// 注册SAPI:将全局变量sapi_module设置为cgi_sapi_module
 	cgi_sapi_module.php_ini_path_override = NULL;
 	cgi_sapi_module.php_ini_ignore_cwd = 1;
 
@@ -1787,7 +1786,7 @@ int main(int argc, char *argv[])
 
 	/* No other args are permitted here as there is no interactive mode */
 	if (argc != php_optind) {
-		cgi_sapi_module.startup(&cgi_sapi_module);      //执行php_module_starup()
+		cgi_sapi_module.startup(&cgi_sapi_module);      //// 执行php_module_starup()
 		php_output_activate();
 		SG(headers_sent) = 1;
 		php_cgi_usage(argv[0]);
@@ -1860,7 +1859,7 @@ consult the installation file that came with this distribution, or visit \n\
 		}
 	}
 
-    //初始化
+    //// 初始化
 	if (0 > fpm_init(argc, argv, fpm_config ? fpm_config : CGIG(fpm_config), fpm_prefix, fpm_pid, test_conf, php_allow_to_run_as_root, force_daemon, force_stderr)) {
 
 		if (fpm_globals.send_config_pipe[1]) {
@@ -1880,7 +1879,7 @@ consult the installation file that came with this distribution, or visit \n\
 	}
 	fpm_is_running = 1;
 
-	fcgi_fd = fpm_run(&max_requests);       //后面都是worker进程的操作，master进程不会走到下面
+	fcgi_fd = fpm_run(&max_requests);       //// 后面都是worker进程的操作，master进程不会走到下面
 	                                        //fcgi_fd就是监听的套接字
 	parent = 0;
 

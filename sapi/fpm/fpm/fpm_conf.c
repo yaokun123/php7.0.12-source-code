@@ -1660,10 +1660,12 @@ static void fpm_conf_dump() /* {{{ */
 }
 /* }}} */
 
+// 处理fpm
 int fpm_conf_init_main(int test_conf, int force_daemon) /* {{{ */
 {
 	int ret;
 
+	// 如果php-fpm.conf配置文件的前缀存在，校验它是不是一个已存在的目录
 	if (fpm_globals.prefix && *fpm_globals.prefix) {
 		if (!fpm_conf_is_dir(fpm_globals.prefix)) {
 			zlog(ZLOG_ERROR, "the global prefix '%s' does not exist or is not a directory", fpm_globals.prefix);

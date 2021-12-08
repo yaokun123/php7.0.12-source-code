@@ -44,7 +44,7 @@ struct fpm_globals_s {
 	int argc;
 	char **argv;
 	char *config;
-	char *prefix;
+	char *prefix;				// 配置文件的前缀（一个目录）
 	char *pid;
 	int running_children;
 	int error_log_fd;
