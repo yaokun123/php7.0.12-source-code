@@ -81,7 +81,7 @@ typedef struct _zend_class_entry     zend_class_entry;
 typedef union  _zend_function        zend_function;
 typedef struct _zend_execute_data    zend_execute_data;
 
-typedef struct _zval_struct     zval;
+typedef struct _zval_struct     zval;					//// 变量
 
 typedef struct _zend_refcounted zend_refcounted;
 typedef struct _zend_string     zend_string;
@@ -99,46 +99,46 @@ typedef void (*dtor_func_t)(zval *pDest);
 typedef void (*copy_ctor_func_t)(zval *pElement);
 
 typedef union _zend_value {
-	zend_long         lval;				//int整形
-	double            dval;				//浮点型
+	zend_long         lval;				//// int整形
+	double            dval;				//// 浮点型
 	zend_refcounted  *counted;
-	zend_string      *str;				//string字符串
-	zend_array       *arr;				//array数组
-	zend_object      *obj;				//object对象
-	zend_resource    *res;				//resource资源类型
-	zend_reference   *ref;				//引用类型，通过&$var_name定义的
-	zend_ast_ref     *ast;				//下面几个都是内核使用的value
+	zend_string      *str;				//// string字符串
+	zend_array       *arr;				//// array数组
+	zend_object      *obj;				//// object对象
+	zend_resource    *res;				//// resource资源类型
+	zend_reference   *ref;				//// 引用类型，通过&$var_name定义的
+	zend_ast_ref     *ast;				//// 下面几个都是内核使用的value
 	zval             *zv;
 	void             *ptr;
-	zend_class_entry *ce;
-	zend_function    *func;
+	zend_class_entry *ce;				//// 类
+	zend_function    *func;				//// 函数
 	struct {
 		uint32_t w1;
 		uint32_t w2;
 	} ww;
 } zend_value;
 
-struct _zval_struct {
-	zend_value        value;					//变量实际的value
+struct _zval_struct {							//// 变量
+	zend_value        value;					// 变量实际的value
 	union {
 		struct {
-			ZEND_ENDIAN_LOHI_4(
-				zend_uchar    type,			//变量类型
-				zend_uchar    type_flags,    //类型掩码，在变量的内存管理、gc机制中会用到
+			ZEND_ENDIAN_LOHI_4(                 //// 这个是为了兼容大小字节序，小字节序就是下面的顺序，大字节序则下面4个顺序翻转
+				zend_uchar    type,			//// 变量类型
+				zend_uchar    type_flags,    //// 类型掩码，在变量的内存管理、gc机制中会用到
 				zend_uchar    const_flags,
-				zend_uchar    reserved)	    /* call info for EX(This) */
+				zend_uchar    reserved)	    // call info，zend执行流程会用到
 		} v;
 		uint32_t type_info;						//上面4个值的组合值，可以直接根据type_info取到4个对应位置的值
 	} u1;
 	union {
 		uint32_t     var_flags;
-		uint32_t     next;                 //哈希表中解决哈希冲突时用到
+		uint32_t     next;                 //// 哈希表中解决哈希冲突时用到
 		uint32_t     cache_slot;           /* literal cache slot */
 		uint32_t     lineno;               /* line number (for ast nodes) */
 		uint32_t     num_args;             /* arguments number for EX(This) */
 		uint32_t     fe_pos;               /* foreach position */
 		uint32_t     fe_iter_idx;          /* foreach iterator index */
-	} u2;									//一些辅助值
+	} u2;								   //// 一些辅助值，兼容内存对齐
 };
 
 typedef struct _zend_refcounted_h {
@@ -158,7 +158,7 @@ struct _zend_refcounted {
 	zend_refcounted_h gc;
 };
 
-struct _zend_string {
+struct _zend_string {					//// 字符串
 	zend_refcounted_h gc;				//变量引用信息
 	zend_ulong        h;                //哈希值，数组中计算索引时会用到
 	size_t            len;				//字符串长度，通过这个值保证二进制安全
@@ -171,9 +171,9 @@ typedef struct _Bucket {
 	zend_string      *key;              //存储元素的key
 } Bucket;
 
-typedef struct _zend_array HashTable;
+typedef struct _zend_array HashTable;				//// HashTable底层就是数组
 
-struct _zend_array {
+struct _zend_array {								//// 数组
 	zend_refcounted_h gc;							//引用计数信息
 	union {
 		struct {
@@ -185,12 +185,12 @@ struct _zend_array {
 		} v;
 		uint32_t flags;
 	} u;
-	uint32_t          nTableMask;					//计算bucket索引时的掩码，
-	Bucket           *arData;						//bucket数组
-	uint32_t          nNumUsed;						//已用bucket数
-	uint32_t          nNumOfElements;				//已有元素数，nNumOfElements <= nNumUsed，因为删除的并不是直接从arData中移除
-	uint32_t          nTableSize;					//数组的大小，为2^n
-	uint32_t          nInternalPointer;				//数值索引
+	uint32_t          nTableMask;					// 计算bucket索引时的掩码，
+	Bucket            *arData;						// bucket数组
+	uint32_t          nNumUsed;						// 已用bucket数
+	uint32_t          nNumOfElements;				// 已有元素数，nNumOfElements <= nNumUsed，因为删除的并不是直接从arData中移除
+	uint32_t          nTableSize;					// 数组的大小，为2^n
+	uint32_t          nInternalPointer;				// 数值索引
 	zend_long         nNextFreeElement;
 	dtor_func_t       pDestructor;
 };
@@ -272,25 +272,25 @@ typedef struct _HashTableIterator {
 	HashPosition  pos;
 } HashTableIterator;
 
-struct _zend_object {
-	zend_refcounted_h gc;						//引用计数
-	uint32_t          handle;					//一次request期间对象的编号，每个对象都有一个唯一的编号，与创建先后顺序有关，主要在垃圾回收时用
-	zend_class_entry *ce;						//所属类
-	const zend_object_handlers *handlers;		//对象操作处理函数,这个保存的对象相关操作的一些函数指针,比如成员属性的读写、成员方法的获取、对象的销毁/克隆等等，这些操作接口都有默认的函数。
-	HashTable        *properties;				//普通成员属性哈希表，对象创建之初这个值为NULL，主要是在动态定义属性时会用到，与properties_table有一定关系
-	zval              properties_table[1];		//普通属性值数组
+struct _zend_object {							//// 对象
+	zend_refcounted_h gc;						// 引用计数
+	uint32_t          handle;					// 一次request期间对象的编号，每个对象都有一个唯一的编号，与创建先后顺序有关，主要在垃圾回收时用
+	zend_class_entry *ce;						// 所属类
+	const zend_object_handlers *handlers;		// 对象操作处理函数,这个保存的对象相关操作的一些函数指针,比如成员属性的读写、成员方法的获取、对象的销毁/克隆等等，这些操作接口都有默认的函数。
+	HashTable        *properties;				// 普通成员属性哈希表，对象创建之初这个值为NULL，主要是在动态定义属性时会用到，与properties_table有一定关系
+	zval              properties_table[1];		// 普通属性值数组
 };
 
-struct _zend_resource {
-	zend_refcounted_h gc;
-	int               handle;
-	int               type;
-	void             *ptr;
+struct _zend_resource {							//// 资源
+	zend_refcounted_h gc;						// 引用计数
+	int               handle;					// 资源编号
+	int               type;						// 资源类型
+	void              *ptr;						// 资源指向的地址
 };
 
-struct _zend_reference {
-	zend_refcounted_h gc;
-	zval              val;
+struct _zend_reference {						//// 引用
+	zend_refcounted_h gc;						// 引用计数
+	zval              val;						// 嵌套了一个变量，指向原来zval的value
 };
 
 struct _zend_ast_ref {
@@ -299,17 +299,18 @@ struct _zend_ast_ref {
 };
 
 /* regular data types */
-#define IS_UNDEF					0
-#define IS_NULL						1
-#define IS_FALSE					2
-#define IS_TRUE						3
-#define IS_LONG						4
-#define IS_DOUBLE					5
-#define IS_STRING					6
-#define IS_ARRAY					7
-#define IS_OBJECT					8
-#define IS_RESOURCE					9
-#define IS_REFERENCE				10
+//// _zval_struct.u1.v.type变量的类型
+#define IS_UNDEF					0		//// 未使用
+#define IS_NULL						1		//// NULL
+#define IS_FALSE					2		//// false,此时_zval_struct.value没有用
+#define IS_TRUE						3		//// true,此时_zval_struct.value没有用
+#define IS_LONG						4		//// 整数,此时_zval_struct.value指向_zend_value.lval
+#define IS_DOUBLE					5		//// 浮点数,此时_zval_struct.value指向_zend_value.dval
+#define IS_STRING					6		//// 字符串,此时_zval_struct.value指向_zend_value.str
+#define IS_ARRAY					7		//// 数组,此时_zval_struct.value指向_zend_value.arr
+#define IS_OBJECT					8		//// 对象,此时_zval_struct.value指向_zend_value.obj
+#define IS_RESOURCE					9		//// 资源,此时_zval_struct.value指向_zend_value.res
+#define IS_REFERENCE				10		//// 引用,此时_zval_struct.value指向_zend_value.ref
 
 /* constant expressions */
 #define IS_CONSTANT					11
