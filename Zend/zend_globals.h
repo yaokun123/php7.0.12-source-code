@@ -143,7 +143,7 @@ struct _zend_executor_globals {//全局变量，在main()执行前分配
 	zend_array **symtable_cache_limit;
 	zend_array **symtable_cache_ptr;
 
-	zend_array symbol_table;		//PHP全局变量hash表:$_GET/$_POST等
+	zend_array symbol_table;		// PHP全局变量hash表:$_GET/$_POST等
 
 	HashTable included_files;	    //已经include的脚本
 

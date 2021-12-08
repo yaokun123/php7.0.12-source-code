@@ -236,6 +236,7 @@ void shutdown_destructors(void) /* {{{ */
 	zend_try {
 		uint32_t symbols;
 		do {
+            // 销毁全局变量
 			symbols = zend_hash_num_elements(&EG(symbol_table));
 			zend_hash_reverse_apply(&EG(symbol_table), (apply_func_t) zval_call_destructor);
 		} while (symbols != zend_hash_num_elements(&EG(symbol_table)));
