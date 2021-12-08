@@ -98,7 +98,7 @@ int fpm_run(int *max_requests) /* {{{ */
 	for (wp = fpm_worker_all_pools; wp; wp = wp->next) {//一般只有一个进程池
 		int is_parent;
 
-		is_parent = fpm_children_create_initial(wp);	//调用fpm_children_make() fork子进程
+		is_parent = fpm_children_create_initial(wp);	//// 调用fpm_children_make() fork子进程
 
 		if (!is_parent) {
 			goto run_child;
@@ -112,7 +112,7 @@ int fpm_run(int *max_requests) /* {{{ */
 	}
 
 	/* run event loop forever */
-	fpm_event_loop(0);								//master进程将进入event循环，不再往下走
+	fpm_event_loop(0);								//// master进程将进入event循环，不再往下走
 
 run_child: /* only workers reach this point */			//只有worker进程会到这里
 
