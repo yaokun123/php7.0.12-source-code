@@ -174,7 +174,7 @@ static void sig_handler(int signo) /* {{{ */
 
 	saved_errno = errno;
 	s = sig_chars[signo];
-	write(sp[1], &s, sizeof(s));        //将信号通知写入管道sp[1]端
+	write(sp[1], &s, sizeof(s));        //// 将信号通知写入管道sp[1]端
 	errno = saved_errno;
 }
 /* }}} */
@@ -183,12 +183,13 @@ int fpm_signals_init_main() /* {{{ */
 {
 	struct sigaction act;
 
-    //创建一个全双工管道，这个管道并不是用于master与worker进程通信的，它只在master进程中使用
-	if (0 > socketpair(AF_UNIX, SOCK_STREAM, 0, sp)) {
+    // 创建一个全双工管道
+	if (0 > socketpair(AF_UNIX, SOCK_STREAM, 0, sp)) {// 这个管道并不是用于master与worker进程通信的，它只在master进程中使用
 		zlog(ZLOG_SYSERROR, "failed to init signals: socketpair()");
 		return -1;
 	}
 
+	// 设置sp[0] 和 sp[1]非阻塞
 	if (0 > fd_set_blocked(sp[0], 0) || 0 > fd_set_blocked(sp[1], 0)) {
 		zlog(ZLOG_SYSERROR, "failed to init signals: fd_set_blocked()");
 		return -1;
@@ -200,12 +201,11 @@ int fpm_signals_init_main() /* {{{ */
 	}
 
 	memset(&act, 0, sizeof(act));
-	act.sa_handler = sig_handler;
+	act.sa_handler = sig_handler;           //// 设置信号处理函数
 	sigfillset(&act.sa_mask);
 
 
-    //设置master的信号处理handler，当master收到SIGTERM、SIGINT、SIGUSR1、SIGUSR2、SIGCHLD、SIGQUIT这些信号时
-    // 将调用sig_handler()处理
+    //设置master的信号处理handler，当master收到SIGTERM、SIGINT、SIGUSR1、SIGUSR2、SIGCHLD、SIGQUIT这些信号时将调用sig_handler()处理
 	if (0 > sigaction(SIGTERM,  &act, 0) ||
 	    0 > sigaction(SIGINT,   &act, 0) ||
 	    0 > sigaction(SIGUSR1,  &act, 0) ||
