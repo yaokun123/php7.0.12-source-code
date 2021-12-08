@@ -64,9 +64,9 @@ int fpm_init(int argc, char **argv, char *config, char *prefix, char *pid, int t
 	    0 > fpm_env_init_main()           ||
 	    0 > fpm_signals_init_main()       ||					//// master信号处理
 	    0 > fpm_children_init_main()      ||
-	    0 > fpm_sockets_init_main()       ||					//创建每个worker pool的socket套接字
+	    0 > fpm_sockets_init_main()       ||					//// 为每个worker_pool创建socket套接字
 	    0 > fpm_worker_pool_init_main()   ||
-	    0 > fpm_event_init_main()) {							//启动master的事件管理，
+	    0 > fpm_event_init_main()) {							//// 启动master的事件管理，
 
 		if (fpm_globals.test_successful) {
 			exit(FPM_EXIT_OK);

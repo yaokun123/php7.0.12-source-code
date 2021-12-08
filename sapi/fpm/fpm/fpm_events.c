@@ -305,6 +305,9 @@ int fpm_event_support_edge_trigger() /* {{{ */
 }
 /* }}} */
 
+
+// fpm实现了一个事件管理器用于管理IO、定时事件，其中IO事件通过kqueue、epoll、poll、select等管理，定时事件就是定时器，一定时间后触发某个事件。
+// 与redis比较类似
 int fpm_event_init_main() /* {{{ */
 {
 	struct fpm_worker_pool_s *wp;
