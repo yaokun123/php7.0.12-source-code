@@ -159,16 +159,16 @@ struct _zend_refcounted {
 };
 
 struct _zend_string {					//// 字符串
-	zend_refcounted_h gc;				//变量引用信息
-	zend_ulong        h;                //哈希值，数组中计算索引时会用到
-	size_t            len;				//字符串长度，通过这个值保证二进制安全
-	char              val[1];			//字符串内容，变长struct，分配时按len长度申请内存
+	zend_refcounted_h gc;				// 变量引用信息
+	zend_ulong        h;                // 哈希值，数组中计算索引时会用到
+	size_t            len;				// 字符串长度，通过这个值保证二进制安全
+	char              val[1];			// 字符串内容，变长struct，分配时按len长度申请内存
 };
 
 typedef struct _Bucket {
-	zval              val;				//存储的具体value，这里嵌入了一个zval，而不是一个指针
-	zend_ulong        h;                //key根据times 33计算得到的哈希值，或者是数值索引编号
-	zend_string      *key;              //存储元素的key
+	zval              val;				// 存储的具体value，这里嵌入了一个zval，而不是一个指针
+	zend_ulong        h;                // key根据times 33计算得到的哈希值，或者是数值索引编号
+	zend_string      *key;              // 存储元素的key
 } Bucket;
 
 typedef struct _zend_array HashTable;				//// HashTable底层就是数组
@@ -185,8 +185,8 @@ struct _zend_array {								//// 数组
 		} v;
 		uint32_t flags;
 	} u;
-	uint32_t          nTableMask;					// 计算bucket索引时的掩码，
-	Bucket            *arData;						// bucket数组
+	uint32_t          nTableMask;					// 哈希值计算掩码，等于nTableSize的负值(nTableMask = -nTableSize)
+	Bucket            *arData;						// 存储元素数组，指向第一个Bucket
 	uint32_t          nNumUsed;						// 已用bucket数
 	uint32_t          nNumOfElements;				// 已有元素数，nNumOfElements <= nNumUsed，因为删除的并不是直接从arData中移除
 	uint32_t          nTableSize;					// 数组的大小，为2^n

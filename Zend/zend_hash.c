@@ -869,29 +869,32 @@ ZEND_API zval* ZEND_FASTCALL _zend_hash_next_index_insert_new(HashTable *ht, zva
 	return _zend_hash_index_add_or_update_i(ht, ht->nNextFreeElement, pData, HASH_ADD | HASH_ADD_NEW | HASH_ADD_NEXT ZEND_FILE_LINE_RELAY_CC);
 }
 
+
+// 哈希表的扩容
 static void ZEND_FASTCALL zend_hash_do_resize(HashTable *ht)
 {
 
 	IS_CONSISTENT(ht);
 	HT_ASSERT(GC_REFCOUNT(ht) == 1);
 
-	if (ht->nNumUsed > ht->nNumOfElements + (ht->nNumOfElements >> 5)) { /* additional term is there to amortize the cost of compaction */
+	if (ht->nNumUsed > ht->nNumOfElements + (ht->nNumOfElements >> 5)) {// 只有到一定阈值才进行rehash操作
 		HANDLE_BLOCK_INTERRUPTIONS();
-		zend_hash_rehash(ht);
+		zend_hash_rehash(ht);                                           // 重建索引数组
 		HANDLE_UNBLOCK_INTERRUPTIONS();
-	} else if (ht->nTableSize < HT_MAX_SIZE) {	/* Let's double the table size */
+	} else if (ht->nTableSize < HT_MAX_SIZE) {	                        // 扩容
 		void *new_data, *old_data = HT_GET_DATA_ADDR(ht);
-		uint32_t nSize = ht->nTableSize + ht->nTableSize;
+		uint32_t nSize = ht->nTableSize + ht->nTableSize;               // 扩大为2倍，加法要比乘法快，小的优化点无处不在...
 		Bucket *old_buckets = ht->arData;
 
 		HANDLE_BLOCK_INTERRUPTIONS();
+        // 新分配arData空间，大小为:(sizeof(Bucket) + sizeof(uint32_t)) * nSize
 		new_data = pemalloc(HT_SIZE_EX(nSize, -nSize), ht->u.flags & HASH_FLAG_PERSISTENT);
 		ht->nTableSize = nSize;
 		ht->nTableMask = -ht->nTableSize;
-		HT_SET_DATA_ADDR(ht, new_data);
-		memcpy(ht->arData, old_buckets, sizeof(Bucket) * ht->nNumUsed);
-		pefree(old_data, ht->u.flags & HASH_FLAG_PERSISTENT);
-		zend_hash_rehash(ht);
+		HT_SET_DATA_ADDR(ht, new_data);                                 // 将arData指针偏移到Bucket数组起始位置
+		memcpy(ht->arData, old_buckets, sizeof(Bucket) * ht->nNumUsed); // 将旧的Bucket数组拷到新空间
+		pefree(old_data, ht->u.flags & HASH_FLAG_PERSISTENT);  // 释放旧空间
+		zend_hash_rehash(ht);                                           // 重建索引数组：散列表
 		HANDLE_UNBLOCK_INTERRUPTIONS();
 	} else {
 		zend_error_noreturn(E_ERROR, "Possible integer overflow in memory allocation (%zu * %zu + %zu)", ht->nTableSize * 2, sizeof(Bucket) + sizeof(uint32_t), sizeof(Bucket));
@@ -916,14 +919,14 @@ ZEND_API int ZEND_FASTCALL zend_hash_rehash(HashTable *ht)
 	HT_HASH_RESET(ht);
 	i = 0;
 	p = ht->arData;
-	if (ht->nNumUsed == ht->nNumOfElements) {
+	if (ht->nNumUsed == ht->nNumOfElements) {               // 没有已删除的直接遍历Bucket数组重新插入索引数组即可
 		do {
 			nIndex = p->h | ht->nTableMask;
 			Z_NEXT(p->val) = HT_HASH(ht, nIndex);
 			HT_HASH(ht, nIndex) = HT_IDX_TO_HASH(i);
 			p++;
 		} while (++i < ht->nNumUsed);
-	} else {
+	} else {                                               // 有已删除元素则将后面的value依次前移，压实Bucket数组
 		do {
 			if (UNEXPECTED(Z_TYPE(p->val) == IS_UNDEF)) {
 				uint32_t j = i;
