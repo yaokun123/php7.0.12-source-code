@@ -18,26 +18,24 @@ enum fpm_address_domain {
 	FPM_AF_INET = 2
 };
 
-struct fpm_worker_pool_s {                  //进程池（一般只设置一个即可）
-	struct fpm_worker_pool_s *next;         //可以配置多个进程池，用链表维护
-	struct fpm_worker_pool_config_s *config;
+struct fpm_worker_pool_s {                              // 进程池（一般只设置一个即可）
+	struct fpm_worker_pool_s *next;                     // 指向下一个worker pool，用链表维护
+	struct fpm_worker_pool_config_s *config;            // conf配置:pm、max_children、start_servers...
 	char *user, *home;									/* for setting env USER and HOME */
 	enum fpm_address_domain listen_address_domain;
-	int listening_socket;                   //这个进程池的套接字（用于worker进程accept客户端的请求）
+	int listening_socket;                               // 监听的套接字
 	int set_uid, set_gid;								/* config uid and gid */
 	int socket_uid, socket_gid, socket_mode;
 
-	/* runtime */
-	struct fpm_child_s *children;
-	int running_children;
+	// 用于master定时检查、记录worker数
+	struct fpm_child_s *children;                       // 当前pool的worker链表
+	int running_children;                               // 当前pool的worker运行总数
 	int idle_spawn_rate;
 	int warn_max_children;
 #if 0
 	int warn_lq;
 #endif
-	struct fpm_scoreboard_s *scoreboard;    //每个worker pool分配一个fpm_scoreboard_s结构
-	                                        //pool下对应的每个worker进程分配一个fpm_scoreboard_proc_s结构
-	                                        //用于记录worker进程运行信息的共享内存
+	struct fpm_scoreboard_s *scoreboard;                // 记录worker的运行信息，比如空闲、忙碌worker数
 	int log_fd;
 	char **limit_extensions;
 

@@ -51,7 +51,7 @@ extern struct fpm_global_config_s fpm_global_config;
 /*
  * Please keep the same order as in fpm_conf.c and in php-fpm.conf.in
  */
-struct fpm_worker_pool_config_s {
+struct fpm_worker_pool_config_s {// 进程池的配置
 	char *name;
 	char *prefix;
 	char *user;

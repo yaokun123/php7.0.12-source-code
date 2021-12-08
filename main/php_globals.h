@@ -38,12 +38,12 @@ extern ZEND_API struct _php_core_globals core_globals;
 #define PHP_DISPLAY_ERRORS_STDERR	2
 
 /* Track vars */
-#define TRACK_VARS_POST		0
-#define TRACK_VARS_GET		1
-#define TRACK_VARS_COOKIE	2
-#define TRACK_VARS_SERVER	3
-#define TRACK_VARS_ENV		4
-#define TRACK_VARS_FILES	5
+#define TRACK_VARS_POST		0       // $_POST
+#define TRACK_VARS_GET		1       // $_GET
+#define TRACK_VARS_COOKIE	2       // $_COOKIE
+#define TRACK_VARS_SERVER	3       // $_SERVER
+#define TRACK_VARS_ENV		4       // $_ENV
+#define TRACK_VARS_FILES	5       // $_FILES
 #define TRACK_VARS_REQUEST	6
 
 struct _php_tick_function_entry;
@@ -113,7 +113,8 @@ struct _php_core_globals {
 
 	zend_llist tick_functions;
 
-	zval http_globals[6];       // 6
+	zval http_globals[6];       // 6个http相关的全局变量($_POST $_GET $_COOKIE $_SERVER $_ENV $_FILES)
+	                            // 定义索引的时候还有一个$_REQUEST，其实就是$_POST和$_GET的merge
 
 	zend_bool expose_php;
 
