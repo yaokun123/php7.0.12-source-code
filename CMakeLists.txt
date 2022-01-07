@@ -183,7 +183,7 @@ set(SOURCE_FILES
         ext/mysqlnd/mysqlnd_wireprotocol.c
         ext/mysqlnd/php_mysqlnd.c
 
-        ext/mysqli/mysqli.c
+        #[[ext/mysqli/mysqli.c
         ext/mysqli/mysqli_api.c
         ext/mysqli/mysqli_driver.c
         ext/mysqli/mysqli_embedded.c
@@ -193,7 +193,7 @@ set(SOURCE_FILES
         ext/mysqli/mysqli_prop.c
         ext/mysqli/mysqli_report.c
         ext/mysqli/mysqli_result_iterator.c
-        ext/mysqli/mysqli_warning.c
+        ext/mysqli/mysqli_warning.c]]
 
         ext/pdo/pdo.c
         ext/pdo/pdo_dbh.c
@@ -201,9 +201,9 @@ set(SOURCE_FILES
         ext/pdo/pdo_sqlstate.c
         ext/pdo/pdo_stmt.c
 
-        ext/pdo_mysql/mysql_driver.c
-        ext/pdo_mysql/mysql_statement.c
-        ext/pdo_mysql/pdo_mysql.c
+        #ext/pdo_mysql/mysql_driver.c
+        #ext/pdo_mysql/mysql_statement.c
+        #ext/pdo_mysql/pdo_mysql.c
 
         ext/curl/curl_file.c
         ext/curl/interface.c
@@ -214,10 +214,13 @@ set(SOURCE_FILES
 add_executable(php ${SOURCE_FILES})
 
 include_directories(${PHP_SOURCE}/main)
+include_directories(${PHP_SOURCE}/ext)
 
 include_directories(${PHP_SOURCE}/Zend)
 
 include_directories(${PHP_SOURCE}/sapi)
+include_directories(${PHP_SOURCE}/sapi/fpm)
+include_directories(${PHP_SOURCE}/
 
 include_directories(${PHP_SOURCE}/pear)
 

@@ -55,8 +55,11 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/pear"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/TSRM"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12"/>
@@ -82,8 +85,11 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm"/>
+					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/pear"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/TSRM"/>
 					<Add directory="/Users/yaokun/php-private/php-source-code/src/php-7.0.12"/>
@@ -390,42 +396,6 @@
 		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/share.c">
 			<Option target="php"/>
 		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_api.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_driver.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_embedded.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_exception.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.h">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_nonapi.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_prop.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_report.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_result_iterator.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_warning.c">
-			<Option target="php"/>
-		</Unit>
 		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/mysqlnd_alloc.c">
 			<Option target="php"/>
 		</Unit>
@@ -529,15 +499,6 @@
 			<Option target="php"/>
 		</Unit>
 		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_stmt.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_driver.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_statement.c">
-			<Option target="php"/>
-		</Unit>
-		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/pdo_mysql.c">
 			<Option target="php"/>
 		</Unit>
 		<Unit filename="/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/standard/array.c">

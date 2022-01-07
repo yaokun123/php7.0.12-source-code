@@ -2267,152 +2267,9 @@ CMakeFiles/php.dir/ext/mysqlnd/php_mysqlnd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqlnd/php_mysqlnd.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqlnd/php_mysqlnd.c -o CMakeFiles/php.dir/ext/mysqlnd/php_mysqlnd.c.s
 
-CMakeFiles/php.dir/ext/mysqli/mysqli.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli.c.o: ../ext/mysqli/mysqli.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli.c > CMakeFiles/php.dir/ext/mysqli/mysqli.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli.c -o CMakeFiles/php.dir/ext/mysqli/mysqli.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.o: ../ext/mysqli/mysqli_api.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_api.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_api.c > CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_api.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.o: ../ext/mysqli/mysqli_driver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_driver.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_driver.c > CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_driver.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.o: ../ext/mysqli/mysqli_embedded.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_embedded.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_embedded.c > CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_embedded.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.o: ../ext/mysqli/mysqli_exception.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_exception.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_exception.c > CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_exception.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.o: ../ext/mysqli/mysqli_fe.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.c > CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_fe.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.o: ../ext/mysqli/mysqli_nonapi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_nonapi.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_nonapi.c > CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_nonapi.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.o: ../ext/mysqli/mysqli_prop.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_prop.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_prop.c > CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_prop.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.o: ../ext/mysqli/mysqli_report.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_report.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_report.c > CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_report.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.o: ../ext/mysqli/mysqli_result_iterator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_result_iterator.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_result_iterator.c > CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_result_iterator.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.s
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.o: ../ext/mysqli/mysqli_warning.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building C object CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_warning.c
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_warning.c > CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.i
-
-CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/mysqli/mysqli_warning.c -o CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.s
-
 CMakeFiles/php.dir/ext/pdo/pdo.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/pdo/pdo.c.o: ../ext/pdo/pdo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building C object CMakeFiles/php.dir/ext/pdo/pdo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building C object CMakeFiles/php.dir/ext/pdo/pdo.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo/pdo.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo.c
 
 CMakeFiles/php.dir/ext/pdo/pdo.c.i: cmake_force
@@ -2425,7 +2282,7 @@ CMakeFiles/php.dir/ext/pdo/pdo.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o: ../ext/pdo/pdo_dbh.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_dbh.c
 
 CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.i: cmake_force
@@ -2438,7 +2295,7 @@ CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o: ../ext/pdo/pdo_sql_parser.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_sql_parser.c
 
 CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.i: cmake_force
@@ -2451,7 +2308,7 @@ CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o: ../ext/pdo/pdo_sqlstate.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_sqlstate.c
 
 CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.i: cmake_force
@@ -2464,7 +2321,7 @@ CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o: ../ext/pdo/pdo_stmt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building C object CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_stmt.c
 
 CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.i: cmake_force
@@ -2475,48 +2332,9 @@ CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo/pdo_stmt.c -o CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.s
 
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.o: ../ext/pdo_mysql/mysql_driver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building C object CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_driver.c
-
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_driver.c > CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.i
-
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_driver.c -o CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.s
-
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.o: ../ext/pdo_mysql/mysql_statement.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building C object CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_statement.c
-
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_statement.c > CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.i
-
-CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/mysql_statement.c -o CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.s
-
-CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.o: CMakeFiles/php.dir/flags.make
-CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.o: ../ext/pdo_mysql/pdo_mysql.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building C object CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/pdo_mysql.c
-
-CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/pdo_mysql.c > CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.i
-
-CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/pdo_mysql/pdo_mysql.c -o CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.s
-
 CMakeFiles/php.dir/ext/curl/curl_file.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/curl/curl_file.c.o: ../ext/curl/curl_file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building C object CMakeFiles/php.dir/ext/curl/curl_file.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building C object CMakeFiles/php.dir/ext/curl/curl_file.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/curl/curl_file.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/curl_file.c
 
 CMakeFiles/php.dir/ext/curl/curl_file.c.i: cmake_force
@@ -2529,7 +2347,7 @@ CMakeFiles/php.dir/ext/curl/curl_file.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/curl/interface.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/curl/interface.c.o: ../ext/curl/interface.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building C object CMakeFiles/php.dir/ext/curl/interface.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building C object CMakeFiles/php.dir/ext/curl/interface.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/curl/interface.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/interface.c
 
 CMakeFiles/php.dir/ext/curl/interface.c.i: cmake_force
@@ -2542,7 +2360,7 @@ CMakeFiles/php.dir/ext/curl/interface.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/curl/multi.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/curl/multi.c.o: ../ext/curl/multi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building C object CMakeFiles/php.dir/ext/curl/multi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building C object CMakeFiles/php.dir/ext/curl/multi.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/curl/multi.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/multi.c
 
 CMakeFiles/php.dir/ext/curl/multi.c.i: cmake_force
@@ -2555,7 +2373,7 @@ CMakeFiles/php.dir/ext/curl/multi.c.s: cmake_force
 
 CMakeFiles/php.dir/ext/curl/share.c.o: CMakeFiles/php.dir/flags.make
 CMakeFiles/php.dir/ext/curl/share.c.o: ../ext/curl/share.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building C object CMakeFiles/php.dir/ext/curl/share.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building C object CMakeFiles/php.dir/ext/curl/share.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/php.dir/ext/curl/share.c.o   -c /Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext/curl/share.c
 
 CMakeFiles/php.dir/ext/curl/share.c.i: cmake_force
@@ -2738,25 +2556,11 @@ php_OBJECTS = \
 "CMakeFiles/php.dir/ext/mysqlnd/mysqlnd_statistics.c.o" \
 "CMakeFiles/php.dir/ext/mysqlnd/mysqlnd_wireprotocol.c.o" \
 "CMakeFiles/php.dir/ext/mysqlnd/php_mysqlnd.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.o" \
-"CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.o" \
 "CMakeFiles/php.dir/ext/pdo/pdo.c.o" \
 "CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o" \
 "CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o" \
 "CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o" \
 "CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o" \
-"CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.o" \
-"CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.o" \
-"CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.o" \
 "CMakeFiles/php.dir/ext/curl/curl_file.c.o" \
 "CMakeFiles/php.dir/ext/curl/interface.c.o" \
 "CMakeFiles/php.dir/ext/curl/multi.c.o" \
@@ -2935,32 +2739,18 @@ php: CMakeFiles/php.dir/ext/mysqlnd/mysqlnd_reverse_api.c.o
 php: CMakeFiles/php.dir/ext/mysqlnd/mysqlnd_statistics.c.o
 php: CMakeFiles/php.dir/ext/mysqlnd/mysqlnd_wireprotocol.c.o
 php: CMakeFiles/php.dir/ext/mysqlnd/php_mysqlnd.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_api.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_driver.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_embedded.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_exception.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_fe.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_nonapi.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_prop.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_report.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_result_iterator.c.o
-php: CMakeFiles/php.dir/ext/mysqli/mysqli_warning.c.o
 php: CMakeFiles/php.dir/ext/pdo/pdo.c.o
 php: CMakeFiles/php.dir/ext/pdo/pdo_dbh.c.o
 php: CMakeFiles/php.dir/ext/pdo/pdo_sql_parser.c.o
 php: CMakeFiles/php.dir/ext/pdo/pdo_sqlstate.c.o
 php: CMakeFiles/php.dir/ext/pdo/pdo_stmt.c.o
-php: CMakeFiles/php.dir/ext/pdo_mysql/mysql_driver.c.o
-php: CMakeFiles/php.dir/ext/pdo_mysql/mysql_statement.c.o
-php: CMakeFiles/php.dir/ext/pdo_mysql/pdo_mysql.c.o
 php: CMakeFiles/php.dir/ext/curl/curl_file.c.o
 php: CMakeFiles/php.dir/ext/curl/interface.c.o
 php: CMakeFiles/php.dir/ext/curl/multi.c.o
 php: CMakeFiles/php.dir/ext/curl/share.c.o
 php: CMakeFiles/php.dir/build.make
 php: CMakeFiles/php.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Linking C executable php"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yaokun/php-private/php-source-code/src/php-7.0.12/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Linking C executable php"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/php.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

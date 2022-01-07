@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/pear -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/TSRM -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12 
+C_INCLUDES = -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/main -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/ext -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/Zend -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/sapi/fpm/fpm -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/pear -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12/TSRM -I/Users/yaokun/php-private/php-source-code/src/php-7.0.12 
 
