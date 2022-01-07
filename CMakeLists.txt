@@ -220,7 +220,7 @@ include_directories(${PHP_SOURCE}/Zend)
 
 include_directories(${PHP_SOURCE}/sapi)
 include_directories(${PHP_SOURCE}/sapi/fpm)
-include_directories(${PHP_SOURCE}/
+include_directories(${PHP_SOURCE}/sapi/fpm/fpm)
 
 include_directories(${PHP_SOURCE}/pear)
 
