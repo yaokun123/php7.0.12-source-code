@@ -278,7 +278,7 @@ struct _zend_object {							//// 对象
 	zend_class_entry *ce;						// 所属类
 	const zend_object_handlers *handlers;		// 对象操作处理函数,这个保存的对象相关操作的一些函数指针,比如成员属性的读写、成员方法的获取、对象的销毁/克隆等等，这些操作接口都有默认的函数。
 	HashTable        *properties;				// 普通成员属性哈希表，对象创建之初这个值为NULL，主要是在动态定义属性时会用到，与properties_table有一定关系
-	zval              properties_table[1];		// 普通属性值数组
+	zval              properties_table[1];		// 普通属性值数组（非静态属性存储在对象结构）
 };
 
 struct _zend_resource {							//// 资源
