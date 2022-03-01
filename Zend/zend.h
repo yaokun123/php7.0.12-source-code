@@ -144,37 +144,37 @@ struct _zend_class_entry {
 	HashTable properties_info;                  // 成员属性基本信息哈希表，key为成员名，value为zend_property_info
 	HashTable constants_table;                  // 常量哈希表，通过constant定义的
 
-    //以下是构造函数、析构函数、魔术方法的指针
-	union _zend_function *constructor;
-	union _zend_function *destructor;
-	union _zend_function *clone;
-	union _zend_function *__get;
-	union _zend_function *__set;
-	union _zend_function *__unset;
-	union _zend_function *__isset;
-	union _zend_function *__call;
-	union _zend_function *__callstatic;
-	union _zend_function *__tostring;
-	union _zend_function *__debugInfo;
-	union _zend_function *serialize_func;
-	union _zend_function *unserialize_func;
+    //// 魔术方法
+	union _zend_function *constructor;          // 构造方法
+	union _zend_function *destructor;           // 析构方法
+	union _zend_function *clone;                // 克隆
+	union _zend_function *__get;                // 用于设置私有属性值
+	union _zend_function *__set;                // 用于获取私有属性值
+	union _zend_function *__unset;              // 用于删除私有属性
+	union _zend_function *__isset;              // 用于检测私有属性值是否被设定
+	union _zend_function *__call;               // 在一个对象的上下文中，如果调用的方法不能访问，它将被触发
+	union _zend_function *__callstatic;         // 在一个静态的上下文中，如果调用的方法不能访问，它将被触发
+	union _zend_function *__tostring;           // 类被当成字符串时的回应方法
+	union _zend_function *__debugInfo;          // 该方法在var_dump()类对象的时候被调用，如果没有定义该方法，则var_dump会打印出所有的类属性
+	union _zend_function *serialize_func;       // 序列化
+	union _zend_function *unserialize_func;     // 反序列化
 
 	zend_class_iterator_funcs iterator_funcs;
 
 	/* handlers */
     //自定义的钩子函数，通常是定义内部类时使用，可以灵活的进行一些个性化的操作
-	zend_object* (*create_object)(zend_class_entry *class_type);
-	zend_object_iterator *(*get_iterator)(zend_class_entry *ce, zval *object, int by_ref);
+	zend_object* (*create_object)(zend_class_entry *class_type);                                // 创建对象的方法
+	zend_object_iterator *(*get_iterator)(zend_class_entry *ce, zval *object, int by_ref);      // 床架对象的迭代器
 	int (*interface_gets_implemented)(zend_class_entry *iface, zend_class_entry *class_type); /* a class implements this interface */
-	union _zend_function *(*get_static_method)(zend_class_entry *ce, zend_string* method);
+	union _zend_function *(*get_static_method)(zend_class_entry *ce, zend_string* method);      // 获取类中的静态方法
 
 	/* serializer callbacks */
 	int (*serialize)(zval *object, unsigned char **buffer, size_t *buf_len, zend_serialize_data *data);
 	int (*unserialize)(zval *object, zend_class_entry *ce, const unsigned char *buf, size_t buf_len, zend_unserialize_data *data);
 
-	uint32_t num_interfaces;                    //实现的接口数
+	uint32_t num_interfaces;                    // 实现的接口数
 	uint32_t num_traits;
-	zend_class_entry **interfaces;              //实现的接口
+	zend_class_entry **interfaces;              // 实现的接口
 
 	zend_class_entry **traits;
 	zend_trait_alias **trait_aliases;
