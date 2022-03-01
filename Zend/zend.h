@@ -129,20 +129,20 @@ typedef struct _zend_trait_alias {
 } zend_trait_alias;
 
 struct _zend_class_entry {
-	char type;                                  //类的类型：内部类ZEND_INTERNAL_CLASS(1)、用户自定义类ZEND_USER_CLASS(2)
-	zend_string *name;                          //类名，PHP类不区分大小写，统一为小写
-	struct _zend_class_entry *parent;           //父类
-	int refcount;
-	uint32_t ce_flags;                          //类掩码，如普通类、抽象类、接口，除了这还有别的含义，暂未弄清
+	char type;                                  // 类的类型：内部类ZEND_INTERNAL_CLASS(1)、用户自定义类ZEND_USER_CLASS(2)
+	zend_string *name;                          // 类名，PHP类不区分大小写，统一为小写
+	struct _zend_class_entry *parent;           // 父类
+	int refcount;                               // 类的引用计数
+	uint32_t ce_flags;                          // 类掩码，如普通类、抽象类、接口，除了这还有别的含义，暂未弄清
 
-	int default_properties_count;               //普通属性数，包括public、private
-	int default_static_members_count;           //静态属性数，static
-	zval *default_properties_table;             //普通属性值数组
-	zval *default_static_members_table;         //静态属性值数组
+	int default_properties_count;               // 普通属性数，包括public、protrcted、private、
+	int default_static_members_count;           // 静态属性数，static
+	zval *default_properties_table;             // 普通属性值数组
+	zval *default_static_members_table;         // 静态属性值数组
 	zval *static_members_table;
-	HashTable function_table;                   //成员方法哈希表
-	HashTable properties_info;                  //成员属性基本信息哈希表，key为成员名，value为zend_property_info
-	HashTable constants_table;                  //常量哈希表，通过constant定义的
+	HashTable function_table;                   // 成员方法哈希表
+	HashTable properties_info;                  // 成员属性基本信息哈希表，key为成员名，value为zend_property_info
+	HashTable constants_table;                  // 常量哈希表，通过constant定义的
 
     //以下是构造函数、析构函数、魔术方法的指针
 	union _zend_function *constructor;
