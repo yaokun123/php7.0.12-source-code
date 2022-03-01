@@ -279,13 +279,11 @@ typedef struct _zend_try_catch_element {
 char *zend_visibility_string(uint32_t fn_flags);
 
 typedef struct _zend_property_info {
-	uint32_t offset; /* property offset for object properties or    //普通成员变量的内存偏移值
-	                      property index for static properties */   //静态成员变量的数组索引
-	uint32_t flags;                 //属性掩码，如public、private、protected及是否为静态属性
-	zend_string *name;              //属性名:并不是原始属性名
-	                                //private会在原始属性名前加上类名，protected则会加上*作为前缀
+	uint32_t offset;                // 普通成员变量的内存偏移值，静态成员变量的数组索引
+	uint32_t flags;                 // 属性掩码，如public、private、protected及是否为静态属性
+	zend_string *name;              // 属性名:并不是原始属性名（private会在原始属性名前加上类名，protected则会加上*作为前缀）
 	zend_string *doc_comment;
-	zend_class_entry *ce;           //所属类
+	zend_class_entry *ce;           // 所属类
 } zend_property_info;
 
 #define OBJ_PROP(obj, offset) \

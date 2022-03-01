@@ -128,6 +128,10 @@ typedef struct _zend_trait_alias {
 	uint32_t modifiers;
 } zend_trait_alias;
 
+//// 类的结构
+//// 类是编译阶段的产物，编译完成后我们定义的每个类都会生成一个zend_class_entry，它保存着类的全部信息，在执行阶段所有与类相关的操作都是用的这个结构。
+//// 所有PHP脚本中定义的类以及内核、扩展中定义的内部类通过一个以"类名"作为索引的哈希表存储，这个哈希表保存在Zend引擎global变量中
+//// zend_executor_globals.class_table(即：EG(class_table))
 struct _zend_class_entry {
 	char type;                                  // 类的类型：内部类ZEND_INTERNAL_CLASS(1)、用户自定义类ZEND_USER_CLASS(2)
 	zend_string *name;                          // 类名，PHP类不区分大小写，统一为小写
@@ -137,12 +141,12 @@ struct _zend_class_entry {
 
 	int default_properties_count;               // 普通属性数，包括public、protrcted、private、
 	int default_static_members_count;           // 静态属性数，static
-	zval *default_properties_table;             // 普通属性值数组
-	zval *default_static_members_table;         // 静态属性值数组
+	zval *default_properties_table;             // 普通属性值数组，普通属性属于对象，各对象独享
+	zval *default_static_members_table;         // 静态属性值数组，静态成员变量保存在类中，各对象共享同一份数据
 	zval *static_members_table;
-	HashTable function_table;                   // 成员方法哈希表
+	HashTable function_table;                   // 成员方法哈希表，成员方法保存在类中而不是EG(function_table)
 	HashTable properties_info;                  // 成员属性基本信息哈希表，key为成员名，value为zend_property_info
-	HashTable constants_table;                  // 常量哈希表，通过constant定义的
+	HashTable constants_table;                  // 常量哈希表，通过const定义的
 
     //// 魔术方法
 	union _zend_function *constructor;          // 构造方法
