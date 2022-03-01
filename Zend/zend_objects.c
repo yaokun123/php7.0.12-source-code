@@ -31,11 +31,13 @@ ZEND_API void zend_object_std_init(zend_object *object, zend_class_entry *ce)
 {
 	zval *p, *end;
 
-	GC_REFCOUNT(object) = 1;
-	GC_TYPE_INFO(object) = IS_OBJECT;
-	object->ce = ce;
-	object->properties = NULL;
-	zend_objects_store_put(object);
+	GC_REFCOUNT(object) = 1;										// 对象的引用计数为1：object->gc.refcount
+	GC_TYPE_INFO(object) = IS_OBJECT;								// 设置类型为对象：   object->gc.u.type_info
+	object->ce = ce;												// 设置对象关联的类
+	object->properties = NULL;										// 设置动态属性为空
+	zend_objects_store_put(object);									// 设置对象的唯一编号，并存放在EG(objects_store).object_buckets[handle] = object;
+
+	//// 初始化对象的普通属性值
 	p = object->properties_table;
 	if (EXPECTED(ce->default_properties_count != 0)) {
 		end = p + ce->default_properties_count;
@@ -44,6 +46,8 @@ ZEND_API void zend_object_std_init(zend_object *object, zend_class_entry *ce)
 			p++;
 		} while (p != end);
 	}
+
+	////
 	if (UNEXPECTED(ce->ce_flags & ZEND_ACC_USE_GUARDS)) {
 		GC_FLAGS(object) |= IS_OBJ_USE_GUARDS;
 		Z_PTR_P(p) = NULL;
@@ -157,12 +161,15 @@ ZEND_API void zend_objects_destroy_object(zend_object *object)
 	}
 }
 
+//// 根据类创建对象
+//// 注意：此操作并没有将属性拷贝到zend_object中，由object_properties_init()完成
 ZEND_API zend_object *zend_objects_new(zend_class_entry *ce)
 {
+	// 分配对象的内存空间
 	zend_object *object = emalloc(sizeof(zend_object) + zend_object_properties_size(ce));
 
 	zend_object_std_init(object, ce);
-	object->handlers = &std_object_handlers;    //设置对象操作的handler
+	object->handlers = &std_object_handlers;    // 设置对象操作的handler
 	return object;
 }
 

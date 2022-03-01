@@ -163,6 +163,8 @@ struct _zend_class_entry {
 
 	/* handlers */
     //自定义的钩子函数，通常是定义内部类时使用，可以灵活的进行一些个性化的操作
+    //// create_object为实例化对象的操作，可以通过扩展自定义一个函数来接管实例化对象的操作，没有定义这个函数的话将由默认的
+    //// zend_objects_new()处理，自定义时可参考这个函数的实现。
 	zend_object* (*create_object)(zend_class_entry *class_type);                                // 创建对象的方法
 	zend_object_iterator *(*get_iterator)(zend_class_entry *ce, zval *object, int by_ref);      // 床架对象的迭代器
 	int (*interface_gets_implemented)(zend_class_entry *iface, zend_class_entry *class_type); /* a class implements this interface */
