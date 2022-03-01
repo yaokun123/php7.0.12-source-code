@@ -17,6 +17,8 @@
 
 static size_t fpm_shm_size = 0;
 
+
+////  共享内存的分配
 void *fpm_shm_alloc(size_t size) /* {{{ */
 {
 	void *mem;
@@ -40,6 +42,7 @@ void *fpm_shm_alloc(size_t size) /* {{{ */
 }
 /* }}} */
 
+//// 共享内存的释放
 int fpm_shm_free(void *mem, size_t size) /* {{{ */
 {
 	if (!mem) {
