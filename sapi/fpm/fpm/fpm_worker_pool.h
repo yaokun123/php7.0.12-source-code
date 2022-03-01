@@ -35,7 +35,7 @@ struct fpm_worker_pool_s {                              // 进程池（一般只
 #if 0
 	int warn_lq;
 #endif
-	struct fpm_scoreboard_s *scoreboard;                // 记录worker的运行信息，比如空闲、忙碌worker数
+	struct fpm_scoreboard_s *scoreboard;                // 记录worker的运行信息，比如空闲、忙碌worker数（master与子进程使用共享内存通信）
 	int log_fd;
 	char **limit_extensions;
 
