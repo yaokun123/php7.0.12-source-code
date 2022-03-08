@@ -132,10 +132,10 @@ PHP_CLI_API cli_shell_callbacks_t *php_cli_get_shell_callbacks()
 const char HARDCODED_INI[] =
 	"html_errors=0\n"
 	"register_argc_argv=1\n"
-	"implicit_flush=1\n"
-	"output_buffering=0\n"
-	"max_execution_time=0\n"
-	"max_input_time=-1\n\0";
+	"implicit_flush=1\n"                    // cli模式下强制开启自动刷新
+	"output_buffering=0\n"                  // cli模式下强制关闭输出缓冲区
+	"max_execution_time=0\n"                // cli模式下不设置最大执行时间
+	"max_input_time=-1\n\0";                // cli模式下不设置接收超时时间
 
 
 const opt_struct OPTIONS[] = {
