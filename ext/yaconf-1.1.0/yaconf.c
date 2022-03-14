@@ -588,6 +588,20 @@ PHP_INI_END()
 /* }}} */
 
 /* {{{ PHP_GINIT_FUNCTION
+ *
+ * #define PHP_GINIT_FUNCTION		ZEND_GINIT_FUNCTION
+ * #define ZEND_GINIT_FUNCTION			ZEND_MODULE_GLOBALS_CTOR_D
+ * #define ZEND_MODULE_GLOBALS_CTOR_D(module)  void ZEND_MODULE_GLOBALS_CTOR_N(module)(zend_##module##_globals *module##_globals)
+ * #define ZEND_MODULE_GLOBALS_CTOR_N(module)  zm_globals_ctor_##module
+ *
+ * zm_globals_ctor_yaconf(zend_yaconf_globals *yaconf_globals)
+ *
+ *
+ * PHP_GINIT
+ * #define PHP_GINIT		ZEND_GINIT
+ * #define ZEND_GINIT(module)		((void (*)(void*))(ZEND_MODULE_GLOBALS_CTOR_N(module)))
+ * #define ZEND_MODULE_GLOBALS_CTOR_N(module)  zm_globals_ctor_##module
+ * zm_globals_ctor_yaconf
 */
 PHP_GINIT_FUNCTION(yaconf)
 {
