@@ -572,6 +572,13 @@ PHP_GINIT_FUNCTION(yaconf)
  * #define INIT_FUNC_ARGS		int type, int module_number
  *
  * zm_startup_yaconf(int type, int module_number)
+ *
+ *
+ * PHP_MINIT
+ * #define PHP_MINIT		ZEND_MODULE_STARTUP_N
+ * #define ZEND_MODULE_STARTUP_N(module)       zm_startup_##module
+ *
+ * zm_startup_yaconf
  */
 PHP_MINIT_FUNCTION(yaconf)
 {
