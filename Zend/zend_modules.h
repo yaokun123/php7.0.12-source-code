@@ -128,7 +128,7 @@ struct _zend_module_entry {
 	int module_started;
 	unsigned char type;
 	void *handle;
-	int module_number;									//扩展的唯一编号
+	int module_number;									//扩展的唯一编号，会在加载扩展时动态设置
 	const char *build_id;
 };
 
