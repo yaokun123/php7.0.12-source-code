@@ -671,6 +671,18 @@ PHP_MINIT_FUNCTION(yaconf)
 
 #ifndef ZTS
 /* {{{ PHP_RINIT_FUNCTION(yaconf)
+ * #define PHP_RINIT_FUNCTION		ZEND_MODULE_ACTIVATE_D
+ * #define ZEND_MODULE_ACTIVATE_D(module)		int ZEND_MODULE_ACTIVATE_N(module)(INIT_FUNC_ARGS)
+ * #define ZEND_MODULE_ACTIVATE_N(module)		zm_activate_##module
+ * #define INIT_FUNC_ARGS		int type, int module_number
+ *
+ * zm_activate_yaconf(int type, int module_number)
+ *
+ *
+ * PHP_RINIT
+ * #define PHP_RINIT		ZEND_MODULE_ACTIVATE_N
+ * #define ZEND_MODULE_ACTIVATE_N(module)		zm_activate_##module
+ * zm_activate_yaconf
 */
 PHP_RINIT_FUNCTION(yaconf)
 {
