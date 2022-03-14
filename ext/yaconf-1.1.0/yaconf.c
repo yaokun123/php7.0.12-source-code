@@ -24,6 +24,9 @@
 #include "ext/standard/info.h"
 #include "php_yaconf.h"
 
+//// 定义全局变量.h
+//// #define ZEND_DECLARE_MODULE_GLOBALS(module_name) zend_##module_name##_globals module_name##_globals;
+// zend_yaconf_globals yaconf_globals
 ZEND_DECLARE_MODULE_GLOBALS(yaconf);
 
 static HashTable *ini_containers;

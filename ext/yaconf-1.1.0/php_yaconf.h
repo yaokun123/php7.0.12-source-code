@@ -45,6 +45,13 @@ extern zend_module_entry yaconf_module_entry;
 #define YACONF_DEBUG(m) 
 #endif
 
+//// #define ZEND_BEGIN_MODULE_GLOBALS(module_name)	typedef struct _zend_##module_name##_globals {
+//// #define ZEND_END_MODULE_GLOBALS(module_name)	} zend_##module_name##_globals;
+/*
+ * typedef struct _zend_yaconf_globals {
+ * .....
+ * } zend_yaconf_globals
+ */
 ZEND_BEGIN_MODULE_GLOBALS(yaconf)
 	char *directory;
 	int   parse_err;
