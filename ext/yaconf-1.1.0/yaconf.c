@@ -779,6 +779,19 @@ PHP_RINIT_FUNCTION(yaconf)
 #endif
 
 /* {{{ PHP_MSHUTDOWN_FUNCTION
+ *
+ * #define PHP_MSHUTDOWN_FUNCTION	ZEND_MODULE_SHUTDOWN_D
+ * #define ZEND_MODULE_SHUTDOWN_D(module)		int ZEND_MODULE_SHUTDOWN_N(module)(SHUTDOWN_FUNC_ARGS)
+ * #define ZEND_MODULE_SHUTDOWN_N(module)		zm_shutdown_##module
+ * #define SHUTDOWN_FUNC_ARGS	int type, int module_number
+ *
+ * zm_shutdown_yaconf(int type, int module_number)
+ *
+ * PHP_MSHUTDOWN
+ * #define PHP_MSHUTDOWN	ZEND_MODULE_SHUTDOWN_N
+ * #define ZEND_MODULE_SHUTDOWN_N(module)		zm_shutdown_##module
+ *
+ * zm_shutdown_yaconf
  */
 PHP_MSHUTDOWN_FUNCTION(yaconf)
 {
