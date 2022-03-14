@@ -29,6 +29,11 @@
 // zend_yaconf_globals yaconf_globals
 ZEND_DECLARE_MODULE_GLOBALS(yaconf);
 
+//// 获取全局变量.h 该扩展没有使用SAPI定义的接口，而是自己实现的
+//// #define MYTEST_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(mytest, v)
+//// #define ZEND_MODULE_GLOBALS_ACCESSOR(module_name, v) (module_name##_globals.v)
+//// #define MYTEST_G(v) yaconf_globals.v
+
 static HashTable *ini_containers;
 static HashTable *parsed_ini_files;
 static zval active_ini_file_section;
