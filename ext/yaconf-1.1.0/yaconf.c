@@ -480,6 +480,19 @@ PHP_YACONF_API int php_yaconf_has(zend_string *name) /* {{{ */ {
 }
 /* }}} */
 
+//// PHP_FUNCTION(function_name)
+//// 内部函数注册
+/*
+ * #define PHP_FUNCTION			ZEND_FUNCTION
+ * #define ZEND_FUNCTION(name)				ZEND_NAMED_FUNCTION(ZEND_FN(name))
+ * #define ZEND_NAMED_FUNCTION(name)		void name(INTERNAL_FUNCTION_PARAMETERS)
+ * #define ZEND_FN(name) zif_##name
+ * #define INTERNAL_FUNCTION_PARAMETERS zend_execute_data *execute_data, zval *return_value
+ *
+ * void zif_function_name(zend_execute_data *execute_data, zval *return_value)
+ */
+
+
 /** {{{ proto public Yaconf::get(string $name, $default = NULL)
 */
 PHP_METHOD(yaconf, get) {
