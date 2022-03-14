@@ -73,12 +73,23 @@ typedef struct _zend_module_dep zend_module_dep;
 //扩展首先需要创建一个zend_module_entry结构，这个变量必须是全局变量，且变量名必须是：扩展名称_module_entry
 //内核通过这个结构得到这个扩展都提供了哪些功能
 struct _zend_module_entry {
+    //// STANDARD_MODULE_HEADER_EX 标准扩展头部会定义如下4个字段
+    //// STANDARD_MODULE_HEADER 头部会定义如下6个字段
+    // size = sizeof(zend_module_entry)
+    // zend_api = 20151012
+    // zend_debug = 1
+    // zts = 0
+    // ini_entry = NULL
+    // deps = NULL
 	unsigned short size;    							//sizeof(zend_module_entry)
 	unsigned int zend_api;  							//ZEND_MODULE_API_NO
 	unsigned char zend_debug;   						//是否开启debug
 	unsigned char zts;          						//是否开启线程安全
+
 	const struct _zend_ini_entry *ini_entry;
 	const struct _zend_module_dep *deps;
+
+
 	const char *name;    								//扩展名称，不能重复
 	const struct _zend_function_entry *functions;   	//扩展提供的内部函数列表
 	int (*module_startup_func)(INIT_FUNC_ARGS);     	//扩展初始化回调函数
@@ -87,6 +98,16 @@ struct _zend_module_entry {
 	int (*request_shutdown_func)(SHUTDOWN_FUNC_ARGS);   //请求结束时回调函数
 	void (*info_func)(ZEND_MODULE_INFO_FUNC_ARGS);      //php_info展示的扩展信息处理函数
 	const char *version;    							//版本
+
+	//// STANDARD_MODULE_PROPERTIES 标准扩展尾部定义如下10个字段
+	//// NO_MODULE_GLOBALS 定义如下4个字段
+	//// ZEND_MODULE_GLOBALS 定义如下2个字段
+	//// # define ZEND_MODULE_GLOBALS(module_name) sizeof(zend_##module_name##_globals), &module_name##_globals
+	//// #define ZEND_DECLARE_MODULE_GLOBALS(module_name) zend_##module_name##_globals module_name##_globals;
+	// globals_size = 0
+	// globals_ptr = NULL
+	// globals_ctor = NULL
+	// globals_dtor = NULL
 	size_t globals_size;
 #ifdef ZTS
 	ts_rsrc_id* globals_id_ptr;
@@ -95,7 +116,15 @@ struct _zend_module_entry {
 #endif
 	void (*globals_ctor)(void *global);
 	void (*globals_dtor)(void *global);
+
 	int (*post_deactivate_func)(void);
+
+	//// STANDARD_MODULE_PROPERTIES_EX 标准扩展尾部定义如下5个字段
+	// module_started = 0
+	// type = 0
+	// handle = NULL
+	// module_number = 0
+	// build_id =
 	int module_started;
 	unsigned char type;
 	void *handle;
