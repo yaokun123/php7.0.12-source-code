@@ -556,6 +556,28 @@ zend_function_entry yaconf_methods[] = {
 /* }}} */
 
 /* {{{ PHP_INI
+ *
+ * #define PHP_INI_BEGIN		ZEND_INI_BEGIN
+ * #define PHP_INI_END			ZEND_INI_END
+ *
+ * #define ZEND_INI_BEGIN()		static const zend_ini_entry_def ini_entries[] = {
+ * #define ZEND_INI_END()		{ NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0} };
+ *
+ * static const zend_ini_entry_def ini_entries[] = {
+ *          { NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0}
+ * }
+ *
+ * #define STD_PHP_INI_ENTRY		STD_ZEND_INI_ENTRY
+ * #define STD_ZEND_INI_ENTRY_EX(name, default_value, modifiable, on_modify, property_name, struct_type, struct_ptr, displayer)
+ * name: php.ini中的配置标识符
+ * default_value: 默认值，注意不管转化后是什么类型，这里必须设置为字符串
+ * modifiable: 可修改等级，ZEND_INI_USER为可以在php脚本中修改，ZEND_INI_SYSTEM为可以在php.ini中修改，还有一个ZEND_INI_PERDIR，ZEND_INI_ALL表示三种都可以，通常情况下设置为ZEND_INI_ALL、ZEND_INI_SYSTEM即可
+ * on_modify: 函数指针，用于指定发现这个配置后赋值处理的函数，默认提供了5个：OnUpdateBool、OnUpdateLong、OnUpdateLongGEZero、OnUpdateReal、OnUpdateString、OnUpdateStringUnempty，支持可以自定义
+ * property_name: 要映射到的结构struct_type中的成员
+ * struct_type: 映射结构的类型
+ * struct_ptr: 映射结构的变量地址，发现配置后会
+ *
+ * 除了STD_PHP_INI_ENTRY()这个宏还有一个类似的宏STD_PHP_INI_BOOLEAN()，用法一致，差别在于后者会自动把配置添加到phpinfo()输出中
  */
 PHP_INI_BEGIN()
 	STD_PHP_INI_ENTRY("yaconf.directory", "", PHP_INI_SYSTEM, OnUpdateString, directory, zend_yaconf_globals, yaconf_globals)
