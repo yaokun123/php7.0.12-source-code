@@ -411,7 +411,7 @@ union _zend_function {
 		zend_uchar type;  /* never used */
 		zend_uchar arg_flags[3]; /* bitset of arg_info.pass_by_reference */
 		uint32_t fn_flags;
-		zend_string *function_name;
+		zend_string *function_name;             //// 函数名
 		zend_class_entry *scope;                //// 成员方法所属类，面向对象实现中用到
 		union _zend_function *prototype;
 		uint32_t num_args;                      //// 参数数量
