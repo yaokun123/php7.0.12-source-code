@@ -195,7 +195,7 @@ struct _zend_class_entry {
 		} user;
 		struct {
 			const struct _zend_function_entry *builtin_functions;
-			struct _zend_module_entry *module;
+			struct _zend_module_entry *module;  // 所属扩展
 		} internal;
 	} info;
 };
