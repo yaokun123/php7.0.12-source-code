@@ -59,6 +59,21 @@ ZEND_BEGIN_ARG_INFO_EX(php_pingansec_set_arginfo, 0, 0, 1)
 ZEND_END_ARG_INFO()
 /* }}} */
 
+// zval free
+        static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
+    switch (Z_TYPE_P(pzval)) {
+        case IS_ARRAY:
+            php_pingan_hash_destroy(Z_ARRVAL_P(pzval));
+            break;
+        case IS_PTR:
+        case IS_STRING:
+            free(Z_PTR_P(pzval));
+            break;
+        default:
+            break;
+    }
+}
+/* }}} */
 
 // hash table destory
 static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
@@ -79,22 +94,6 @@ static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
         free(HT_GET_DATA_ADDR(ht));         // free hash
     }
     free(ht);               // destory hashtable variable
-}
-/* }}} */
-
-// zval free
-static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
-    switch (Z_TYPE_P(pzval)) {
-        case IS_ARRAY:
-            php_pingan_hash_destroy(Z_ARRVAL_P(pzval));
-            break;
-        case IS_PTR:
-        case IS_STRING:
-            free(Z_PTR_P(pzval));
-            break;
-        default:
-            break;
-    }
 }
 /* }}} */
 
