@@ -42,6 +42,19 @@ zend_class_entry *pingansec_ce;
 	(ht) = (HashTable*)pemalloc(sizeof(HashTable), 1); \
 } while(0)
 
+
+/* {{{ ARG_INFO
+ */
+ZEND_BEGIN_ARG_INFO_EX(php_pingansec_get_arginfo, 0, 0, 1)
+    ZEND_ARG_INFO(0, name)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(php_pingansec_has_arginfo, 0, 0, 1)
+    ZEND_ARG_INFO(0, name)
+ZEND_END_ARG_INFO()
+/* }}} */
+
+
 // hash table destory
 static void php_pingan_hash_destroy(HashTable *ht) /* {{{ */ {
     zend_string *key;
@@ -79,7 +92,7 @@ static void php_pingan_zval_dtor(zval *pzval) /* {{{ */ {
 }
 /* }}} */
 
-PHP_PINGSNSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
+PHP_PINGANSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
     if (ini_containers) {
         zval *pzval;
         char *seg;
@@ -93,6 +106,7 @@ PHP_PINGSNSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
     }
     return NUll;
 }
+/* }}} */
 
 PHP_PINGANSEC_API int php_pingansec_has(zend_string *name) /* {{{ */ {
     return php_pingansec_get(name) != NULL;
@@ -138,12 +152,44 @@ static void php_pingansec_init_globals(zend_pingansec_globals *pingansec_globals
 }
 */
 
+/** {{{ proto public Pingansec::get(string $name)
+*/
+PHP_METHOD(pingansec, get) {
+    zend_string *name;
+    zval *val = NULL;
+
+    // S    ->  zend_string
+    // z    ->
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "S", &name) == FAILURE) {
+        return;
+    }
+
+    val = php_pingansec_get(name);
+    if (val) {
+        RETURN_ZVAL(val, 0, 0);
+    }
+    RETURN_NULL();
+}
+/* }}} */
+
+/** {{{ proto public Pingansec::has(string $name)
+*/
+PHP_METHOD(pingansec, has) {
+    zend_string *name;
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "S", &name) == FAILURE) {
+        return;
+    }
+
+    RETURN_BOOL(php_pingansec_has(name));
+}
+/* }}} */
+
 
 zend_function_entry pingansec_methods[] = {
-        /*PHP_ME(yaconf, get, php_yaconf_get_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
-        PHP_ME(yaconf, has, php_yaconf_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
-        PHP_ME(yaconf, __debug_info, php_yaconf_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
-        {NULL, NULL, NULL}*/
+        PHP_ME(pingansec, get, php_pingansec_get_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+        PHP_ME(pingansec, has, php_pingansec_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+        {NULL, NULL, NULL}
 };
 
 
