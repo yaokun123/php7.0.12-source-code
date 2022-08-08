@@ -24,6 +24,14 @@
 extern zend_module_entry pingansec_module_entry;
 #define phpext_pingansec_ptr &pingansec_module_entry
 
+
+// quick operation global
+#ifdef ZTS
+#define PINGANSEC_G(v) TSRMG(pingansec_globals_id, zend_pingansec_globals *, v)
+#else
+#define PINGANSEC_G(v) (pingansec_globals.v)
+#endif
+
 #define PHP_PINGANSEC_VERSION "0.1.0" /* Replace with version number for your extension */
 
 #ifdef PHP_WIN32
@@ -38,15 +46,17 @@ extern zend_module_entry pingansec_module_entry;
 #include "TSRM.h"
 #endif
 
-/*
-  	Declare any global variables you may need between the BEGIN
-	and END macros here:
 
+// Declare any global variables
 ZEND_BEGIN_MODULE_GLOBALS(pingansec)
-	zend_long  global_value;
-	char *global_string;
+    char *directory;
+    int   parse_err;
+#ifndef ZTS
+    long   check_delay;
+    time_t last_check;
+    time_t directory_mtime;
+#endif
 ZEND_END_MODULE_GLOBALS(pingansec)
-*/
 
 /* Always refer to the globals in your function as PINGANSEC_G(variable).
    You are encouraged to rename these macros something shorter, see

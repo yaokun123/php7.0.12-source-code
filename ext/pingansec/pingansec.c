@@ -84,19 +84,27 @@ static void php_pingansec_init_globals(zend_pingansec_globals *pingansec_globals
 */
 /* }}} */
 
-/* {{{ PHP_MINIT_FUNCTION
- */
+
+zend_function_entry pingansec_methods[] = {
+        /*PHP_ME(yaconf, get, php_yaconf_get_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+        PHP_ME(yaconf, has, php_yaconf_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+        PHP_ME(yaconf, __debug_info, php_yaconf_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+        {NULL, NULL, NULL}*/
+};
+
+
+// module_startup_func
 PHP_MINIT_FUNCTION(pingansec)
 {
-	/* If you have INI entries, uncomment these lines
-	REGISTER_INI_ENTRIES();
-	*/
+    zend_class_entry ce;
+    INIT_CLASS_ENTRY(ce, "Pingansec", pingansec_methods);     // 类方法
+
+    pingansec_ce = zend_register_internal_class_ex(&ce, NULL); // 内部类注册
 	return SUCCESS;
 }
-/* }}} */
 
-/* {{{ PHP_MSHUTDOWN_FUNCTION
- */
+
+// module_shutdown_func
 PHP_MSHUTDOWN_FUNCTION(pingansec)
 {
 	/* uncomment this line if you have INI entries
@@ -104,11 +112,9 @@ PHP_MSHUTDOWN_FUNCTION(pingansec)
 	*/
 	return SUCCESS;
 }
-/* }}} */
 
-/* Remove if there's nothing to do at request start */
-/* {{{ PHP_RINIT_FUNCTION
- */
+
+// request_startup_func
 PHP_RINIT_FUNCTION(pingansec)
 {
 #if defined(COMPILE_DL_PINGANSEC) && defined(ZTS)
@@ -116,16 +122,12 @@ PHP_RINIT_FUNCTION(pingansec)
 #endif
 	return SUCCESS;
 }
-/* }}} */
 
-/* Remove if there's nothing to do at request end */
-/* {{{ PHP_RSHUTDOWN_FUNCTION
- */
+// request_shutdown_func
 PHP_RSHUTDOWN_FUNCTION(pingansec)
 {
 	return SUCCESS;
 }
-/* }}} */
 
 /* {{{ PHP_MINFO_FUNCTION
  */
