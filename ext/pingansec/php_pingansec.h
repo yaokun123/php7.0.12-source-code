@@ -32,6 +32,12 @@ extern zend_module_entry pingansec_module_entry;
 #define PINGANSEC_G(v) (pingansec_globals.v)
 #endif
 
+#ifdef PHP_WIN32
+#define PHP_PINGANSEC_API __declspec(dllexport)
+#else
+#define PHP_PINGANSEC_API
+#endif
+
 #define PHP_PINGANSEC_VERSION "0.1.0" /* Replace with version number for your extension */
 
 #ifdef PHP_WIN32
@@ -67,6 +73,11 @@ ZEND_END_MODULE_GLOBALS(pingansec)
 #if defined(ZTS) && defined(COMPILE_DL_PINGANSEC)
 ZEND_TSRMLS_CACHE_EXTERN()
 #endif
+
+BEGIN_EXTERN_C()
+PHP_PINGANSEC_API zval *php_pingansec_get(zend_string *name);
+PHP_PINGANSEC_API int php_pingansec_has(zend_string *name);
+END_EXTERN_C()
 
 #endif	/* PHP_PINGANSEC_H */
 
