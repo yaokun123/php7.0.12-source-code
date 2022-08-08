@@ -118,8 +118,7 @@ PHP_RSHUTDOWN_FUNCTION(pingansec)
 	return SUCCESS;
 }
 
-/* {{{ PHP_MINFO_FUNCTION
- */
+
 PHP_MINFO_FUNCTION(pingansec)
 {
 	php_info_print_table_start();
@@ -130,7 +129,6 @@ PHP_MINFO_FUNCTION(pingansec)
 	DISPLAY_INI_ENTRIES();
 	*/
 }
-/* }}} */
 
 
 /*const zend_function_entry pingansec_functions[] = {
