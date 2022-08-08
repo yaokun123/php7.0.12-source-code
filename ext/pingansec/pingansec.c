@@ -56,7 +56,7 @@ ZEND_BEGIN_ARG_INFO_EX(php_pingansec_has_arginfo, 0, 0, 1)
     ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO_EX(php_pingansec_set_arginfo, 0, 0, 1)
+ZEND_BEGIN_ARG_INFO_EX(php_pingansec_set_arginfo, 0, 0, 2)
     ZEND_ARG_INFO(0, name)
     ZEND_ARG_INFO(0, arr)
 ZEND_END_ARG_INFO()
