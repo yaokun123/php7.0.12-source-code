@@ -164,13 +164,17 @@ PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
     if (ini_containers) {
         zval *pzval;
         char *seg;
+        zval *res = NULL;
         size_t len;
         HashTable *target = ini_containers;
 
 
         seg = ZSTR_VAL(name);
         len = ZSTR_LEN(name);
-        php_pingansec_symtable_update(target, seg, len, zv);
+        res = php_pingansec_symtable_update(target, seg, len, zv);
+        if (res){
+            return 1;
+        }
     }
     return 0;
 }
