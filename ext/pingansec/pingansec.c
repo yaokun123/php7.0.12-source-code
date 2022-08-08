@@ -37,6 +37,9 @@ static int le_pingansec;
 static HashTable *ini_containers;
 zend_class_entry *pingansec_ce;
 
+static void php_pingansec_zval_persistent(zval *zv, zval *rv);
+static void php_pingansec_zval_dtor(zval *pzval);
+
 // malloc hashtable size without api
 #define PALLOC_HASHTABLE(ht) do { \
 	(ht) = (HashTable*)pemalloc(sizeof(HashTable), 1); \
@@ -59,21 +62,6 @@ ZEND_BEGIN_ARG_INFO_EX(php_pingansec_set_arginfo, 0, 0, 1)
 ZEND_END_ARG_INFO()
 /* }}} */
 
-// zval free
-        static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
-    switch (Z_TYPE_P(pzval)) {
-        case IS_ARRAY:
-            php_pingan_hash_destroy(Z_ARRVAL_P(pzval));
-            break;
-        case IS_PTR:
-        case IS_STRING:
-            free(Z_PTR_P(pzval));
-            break;
-        default:
-            break;
-    }
-}
-/* }}} */
 
 // hash table destory
 static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
@@ -94,6 +82,22 @@ static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
         free(HT_GET_DATA_ADDR(ht));         // free hash
     }
     free(ht);               // destory hashtable variable
+}
+/* }}} */
+
+// zval free
+static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
+    switch (Z_TYPE_P(pzval)) {
+        case IS_ARRAY:
+            php_pingansec_hash_destroy(Z_ARRVAL_P(pzval));
+            break;
+        case IS_PTR:
+        case IS_STRING:
+            free(Z_PTR_P(pzval));
+            break;
+        default:
+            break;
+    }
 }
 /* }}} */
 
