@@ -52,6 +52,11 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(php_pingansec_has_arginfo, 0, 0, 1)
     ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(php_pingansec_set_arginfo, 0, 0, 1)
+    ZEND_ARG_INFO(0, name)
+    ZEND_ARG_INFO(0, arr)
+ZEND_END_ARG_INFO()
 /* }}} */
 
 
@@ -151,6 +156,21 @@ PHP_PINGANSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
 PHP_PINGANSEC_API int php_pingansec_has(zend_string *name) /* {{{ */ {
     return php_pingansec_get(name) != NULL;
 }
+
+PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
+    if (ini_containers) {
+        zval *pzval;
+        char *seg;
+        size_t len;
+        HashTable *target = ini_containers;
+
+
+        seg = ZSTR_VAL(name);
+        len = ZSTR_LEN(name);
+        php_pingansec_symtable_update(target, seg, len, zv);
+    }
+    return 0;
+}
 /* }}} */
 
 /* Remove comments and fill if you need to have entries in php.ini
@@ -218,7 +238,7 @@ PHP_METHOD(pingansec, has) {
     zend_string *name;
 
     if (zend_parse_parameters(ZEND_NUM_ARGS(), "S", &name) == FAILURE) {
-        return;
+        RETURN_FALSE;
     }
 
     RETURN_BOOL(php_pingansec_has(name));
@@ -226,9 +246,25 @@ PHP_METHOD(pingansec, has) {
 /* }}} */
 
 
+/** {{{ proto public Pingansec::set(string $name)
+*/
+PHP_METHOD(pingansec, set) {
+    zend_string *name;
+    zval        *arr;
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "Sa", &name, &arr) == FAILURE) {
+        RETURN_FALSE;
+    }
+
+    RETURN_BOOL(php_pingansec_set(name, arr));
+}
+/* }}} */
+
+
 zend_function_entry pingansec_methods[] = {
         PHP_ME(pingansec, get, php_pingansec_get_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
         PHP_ME(pingansec, has, php_pingansec_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+        PHP_ME(pingansec, set, php_pingansec_set_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
         {NULL, NULL, NULL}
 };
 
