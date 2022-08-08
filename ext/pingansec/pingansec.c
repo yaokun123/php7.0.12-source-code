@@ -79,6 +79,26 @@ static void php_pingan_zval_dtor(zval *pzval) /* {{{ */ {
 }
 /* }}} */
 
+PHP_PINGSNSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
+    if (ini_containers) {
+        zval *pzval;
+        char *seg;
+        size_t len;
+        HashTable *target = ini_containers;
+
+
+        seg = ZSTR_VAL(name);
+        len = ZSTR_LEN(name);
+        return zend_symtable_str_find(target, seg, len);
+    }
+    return NUll;
+}
+
+PHP_PINGANSEC_API int php_pingansec_has(zend_string *name) /* {{{ */ {
+    return php_pingansec_get(name) != NULL;
+}
+/* }}} */
+
 /* Remove comments and fill if you need to have entries in php.ini
 PHP_INI_BEGIN()
     STD_PHP_INI_ENTRY("pingansec.global_value",      "42", PHP_INI_ALL, OnUpdateLong, global_value, zend_pingansec_globals, pingansec_globals)
