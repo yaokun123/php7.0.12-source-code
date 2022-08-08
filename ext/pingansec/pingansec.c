@@ -34,24 +34,15 @@ ZEND_DECLARE_MODULE_GLOBALS(pingansec)
 /* True global resources - no need for thread safety here */
 static int le_pingansec;
 
-/* {{{ PHP_INI
- */
 /* Remove comments and fill if you need to have entries in php.ini
 PHP_INI_BEGIN()
     STD_PHP_INI_ENTRY("pingansec.global_value",      "42", PHP_INI_ALL, OnUpdateLong, global_value, zend_pingansec_globals, pingansec_globals)
     STD_PHP_INI_ENTRY("pingansec.global_string", "foobar", PHP_INI_ALL, OnUpdateString, global_string, zend_pingansec_globals, pingansec_globals)
 PHP_INI_END()
 */
-/* }}} */
 
-/* Remove the following function when you have successfully modified config.m4
-   so that your module can be compiled into PHP, it exists only for testing
-   purposes. */
 
-/* Every user-visible function in PHP should document itself in the source */
-/* {{{ proto string confirm_pingansec_compiled(string arg)
-   Return a string to confirm that the module is compiled in */
-PHP_FUNCTION(confirm_pingansec_compiled)
+/*PHP_FUNCTION(confirm_pingansec_compiled)
 {
 	char *arg = NULL;
 	size_t arg_len, len;
@@ -64,8 +55,8 @@ PHP_FUNCTION(confirm_pingansec_compiled)
 	strg = strpprintf(0, "Congratulations! You have successfully modified ext/%.78s/config.m4. Module %.78s is now compiled into PHP.", "pingansec", arg);
 
 	RETURN_STR(strg);
-}
-/* }}} */
+}*/
+
 /* The previous line is meant for vim and emacs, so it can correctly fold and
    unfold functions in source code. See the corresponding marks just before
    function definition, where the functions purpose is also documented. Please
@@ -73,8 +64,7 @@ PHP_FUNCTION(confirm_pingansec_compiled)
 */
 
 
-/* {{{ php_pingansec_init_globals
- */
+
 /* Uncomment this function if you have INI entries
 static void php_pingansec_init_globals(zend_pingansec_globals *pingansec_globals)
 {
@@ -82,7 +72,6 @@ static void php_pingansec_init_globals(zend_pingansec_globals *pingansec_globals
 	pingansec_globals->global_string = NULL;
 }
 */
-/* }}} */
 
 
 zend_function_entry pingansec_methods[] = {
@@ -143,22 +132,18 @@ PHP_MINFO_FUNCTION(pingansec)
 }
 /* }}} */
 
-/* {{{ pingansec_functions[]
- *
- * Every user visible function must have an entry in pingansec_functions[].
- */
-const zend_function_entry pingansec_functions[] = {
-	PHP_FE(confirm_pingansec_compiled,	NULL)		/* For testing, remove later. */
-	PHP_FE_END	/* Must be the last line in pingansec_functions[] */
-};
-/* }}} */
 
-/* {{{ pingansec_module_entry
- */
+/*const zend_function_entry pingansec_functions[] = {
+	PHP_FE(confirm_pingansec_compiled,	NULL)		*//* For testing, remove later. *//*
+	PHP_FE_END	*//* Must be the last line in pingansec_functions[] *//*
+};*/
+
+
+// pingansec_module_entry
 zend_module_entry pingansec_module_entry = {
 	STANDARD_MODULE_HEADER,
 	"pingansec",
-	pingansec_functions,
+	NULL,               // unused function, only used method
 	PHP_MINIT(pingansec),
 	PHP_MSHUTDOWN(pingansec),
 	PHP_RINIT(pingansec),		/* Replace with NULL if there's nothing to do at request start */
@@ -167,7 +152,7 @@ zend_module_entry pingansec_module_entry = {
 	PHP_PINGANSEC_VERSION,
 	STANDARD_MODULE_PROPERTIES
 };
-/* }}} */
+
 
 #ifdef COMPILE_DL_PINGANSEC
 #ifdef ZTS
