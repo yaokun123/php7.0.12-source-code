@@ -43,7 +43,7 @@ zend_class_entry *pingansec_ce;
 } while(0)
 
 // hash table destory
-static void php_pingan_hash_destroy(HashTable *ht) {
+static void php_pingan_hash_destroy(HashTable *ht) /* {{{ */ {
     zend_string *key;
     zval *element;
 
@@ -61,10 +61,10 @@ static void php_pingan_hash_destroy(HashTable *ht) {
         free(HT_GET_DATA_ADDR(ht));         // free hash
     }
     free(ht);               // destory hashtable variable
-}
+} /* }}} */
 
 // zval free
-static void php_pingan_zval_dtor(zval *pzval) {
+static void php_pingan_zval_dtor(zval *pzval) /* {{{ */ {
     switch (Z_TYPE_P(pzval)) {
         case IS_ARRAY:
             php_pingan_hash_destroy(Z_ARRVAL_P(pzval));
@@ -77,6 +77,7 @@ static void php_pingan_zval_dtor(zval *pzval) {
             break;
     }
 }
+/* }}} */
 
 /* Remove comments and fill if you need to have entries in php.ini
 PHP_INI_BEGIN()
