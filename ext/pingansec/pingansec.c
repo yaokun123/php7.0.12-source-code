@@ -37,6 +37,47 @@ static int le_pingansec;
 static HashTable *ini_containers;
 zend_class_entry *pingansec_ce;
 
+// malloc hashtable size without api
+#define PALLOC_HASHTABLE(ht) do { \
+	(ht) = (HashTable*)pemalloc(sizeof(HashTable), 1); \
+} while(0)
+
+// hash table destory
+static void php_pingan_hash_destroy(HashTable *ht) {
+    zend_string *key;
+    zval *element;
+
+#if PHP_VERSION_ID < 70400
+    if (((ht)->u.flags & HASH_FLAG_INITIALIZED)) {
+#else
+    if (HT_IS_INITIALIZED(ht)) {
+#endif
+        ZEND_HASH_FOREACH_STR_KEY_VAL(ht, key, element) {
+            if (key) {
+                free(key);  // free
+            }
+            php_pingan_zval_dtor(element);
+        } ZEND_HASH_FOREACH_END();
+        free(HT_GET_DATA_ADDR(ht));
+    }
+    free(ht);
+}
+
+// zval
+static void php_pingan_zval_dtor(zval *pzval) {
+    switch (Z_TYPE_P(pzval)) {
+        case IS_ARRAY:
+            php_pingan_hash_destroy(Z_ARRVAL_P(pzval));
+            break;
+        case IS_PTR:
+        case IS_STRING:
+            free(Z_PTR_P(pzval));
+            break;
+        default:
+            break;
+    }
+}
+
 /* Remove comments and fill if you need to have entries in php.ini
 PHP_INI_BEGIN()
     STD_PHP_INI_ENTRY("pingansec.global_value",      "42", PHP_INI_ALL, OnUpdateLong, global_value, zend_pingansec_globals, pingansec_globals)
@@ -93,7 +134,7 @@ PHP_MINIT_FUNCTION(pingansec)
     pingansec_ce = zend_register_internal_class_ex(&ce, NULL);
 
 
-    PALLOC_HASHTABLE(ini_containers);   //hashTable初始化（持久化）
+    PALLOC_HASHTABLE(ini_containers);
     zend_hash_init(ini_containers, 8, NULL, NULL, 1);
 	return SUCCESS;
 }
@@ -102,9 +143,9 @@ PHP_MINIT_FUNCTION(pingansec)
 // module_shutdown_func
 PHP_MSHUTDOWN_FUNCTION(pingansec)
 {
-	/* uncomment this line if you have INI entries
-	UNREGISTER_INI_ENTRIES();
-	*/
+    if (ini_containers) {
+        php_pingan_hash_destroy(ini_containers);
+    }
 	return SUCCESS;
 }
 
