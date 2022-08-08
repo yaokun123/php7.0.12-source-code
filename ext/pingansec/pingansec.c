@@ -34,6 +34,8 @@ ZEND_DECLARE_MODULE_GLOBALS(pingansec)
 /* True global resources - no need for thread safety here */
 static int le_pingansec;
 
+zend_class_entry *pingansec_ce;
+
 /* Remove comments and fill if you need to have entries in php.ini
 PHP_INI_BEGIN()
     STD_PHP_INI_ENTRY("pingansec.global_value",      "42", PHP_INI_ALL, OnUpdateLong, global_value, zend_pingansec_globals, pingansec_globals)
