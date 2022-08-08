@@ -7,9 +7,9 @@ dnl without editing.
 
 dnl If your extension references something external, use with:
 
-dnl PHP_ARG_WITH(pingansec, for pingansec support,
-dnl Make sure that the comment is aligned:
-dnl [  --with-pingansec             Include pingansec support])
+PHP_ARG_WITH(pingansec, for pingansec support,
+Make sure that the comment is aligned:
+[  --with-pingansec             Include pingansec support])
 
 dnl Otherwise use enable:
 
