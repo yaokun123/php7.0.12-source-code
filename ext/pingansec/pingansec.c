@@ -56,7 +56,7 @@ ZEND_END_ARG_INFO()
 
 
 // hash table destory
-static void php_pingan_hash_destroy(HashTable *ht) /* {{{ */ {
+static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
     zend_string *key;
     zval *element;
 
@@ -69,15 +69,16 @@ static void php_pingan_hash_destroy(HashTable *ht) /* {{{ */ {
             if (key) {
                 free(key);  // free key
             }
-            php_pingan_zval_dtor(element);  // free value
+            php_pingansec_zval_dtor(element);  // free value
         } ZEND_HASH_FOREACH_END();
         free(HT_GET_DATA_ADDR(ht));         // free hash
     }
     free(ht);               // destory hashtable variable
-} /* }}} */
+}
+/* }}} */
 
 // zval free
-static void php_pingan_zval_dtor(zval *pzval) /* {{{ */ {
+static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
     switch (Z_TYPE_P(pzval)) {
         case IS_ARRAY:
             php_pingan_hash_destroy(Z_ARRVAL_P(pzval));
@@ -89,6 +90,45 @@ static void php_pingan_zval_dtor(zval *pzval) /* {{{ */ {
         default:
             break;
     }
+}
+/* }}} */
+
+static zend_string* php_pingansec_str_persistent(char *str, size_t len) /* {{{ */ {
+    zend_string *key = zend_string_init(str, len, 1);
+    if (key == NULL) {
+        zend_error(E_ERROR, "fail to allocate memory for string, no enough memory?");
+    }
+    key->h = zend_string_hash_val(key);
+#if PHP_VERSION_ID < 70300
+    GC_FLAGS(key) |= (IS_STR_INTERNED | IS_STR_PERMANENT);
+#else
+    GC_ADD_FLAGS(key, IS_STR_INTERNED | IS_STR_PERMANENT);
+#endif
+    return key;
+}
+/* }}} */
+
+static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len, zval *zv) /* {{{ */ {
+    zend_ulong idx;
+    zval *element;
+
+    if (ZEND_HANDLE_NUMERIC_STR(key, len, idx)) {
+        if ((element = zend_hash_index_find(ht, idx))) {
+            php_pingansec_zval_dtor(element);
+            ZVAL_COPY_VALUE(element, zv);
+        } else {
+            element = zend_hash_index_add(ht, idx, zv);
+        }
+    } else {
+        if ((element = zend_hash_str_find(ht, key, len))) {
+            php_pingansec_zval_dtor(element);
+            ZVAL_COPY_VALUE(element, zv);
+        } else {
+            element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), zv);
+        }
+    }
+
+    return element;
 }
 /* }}} */
 
@@ -207,14 +247,18 @@ PHP_MINIT_FUNCTION(pingansec)
 }
 
 
-// module_shutdown_func
+/* {{{ PHP_MSHUTDOWN_FUNCTION
+ *
+ * module_shutdown_func
+ */
 PHP_MSHUTDOWN_FUNCTION(pingansec)
 {
     if (ini_containers) {
-        php_pingan_hash_destroy(ini_containers);
+        php_pingansec_hash_destroy(ini_containers);
     }
 	return SUCCESS;
 }
+/* }}} */
 
 
 // request_startup_func
