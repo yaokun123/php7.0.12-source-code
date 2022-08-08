@@ -54,16 +54,16 @@ static void php_pingan_hash_destroy(HashTable *ht) {
 #endif
         ZEND_HASH_FOREACH_STR_KEY_VAL(ht, key, element) {
             if (key) {
-                free(key);  // free
+                free(key);  // free key
             }
-            php_pingan_zval_dtor(element);
+            php_pingan_zval_dtor(element);  // free value
         } ZEND_HASH_FOREACH_END();
-        free(HT_GET_DATA_ADDR(ht));
+        free(HT_GET_DATA_ADDR(ht));         // free hash
     }
-    free(ht);
+    free(ht);               // destory hashtable variable
 }
 
-// zval
+// zval free
 static void php_pingan_zval_dtor(zval *pzval) {
     switch (Z_TYPE_P(pzval)) {
         case IS_ARRAY:
