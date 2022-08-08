@@ -34,6 +34,7 @@ ZEND_DECLARE_MODULE_GLOBALS(pingansec)
 /* True global resources - no need for thread safety here */
 static int le_pingansec;
 
+static HashTable *ini_containers;
 zend_class_entry *pingansec_ce;
 
 /* Remove comments and fill if you need to have entries in php.ini
@@ -88,9 +89,12 @@ zend_function_entry pingansec_methods[] = {
 PHP_MINIT_FUNCTION(pingansec)
 {
     zend_class_entry ce;
-    INIT_CLASS_ENTRY(ce, "Pingansec", pingansec_methods);     // 类方法
+    INIT_CLASS_ENTRY(ce, "Pingansec", pingansec_methods);
+    pingansec_ce = zend_register_internal_class_ex(&ce, NULL);
 
-    pingansec_ce = zend_register_internal_class_ex(&ce, NULL); // 内部类注册
+
+    PALLOC_HASHTABLE(ini_containers);   //hashTable初始化（持久化）
+    zend_hash_init(ini_containers, 8, NULL, NULL, 1);
 	return SUCCESS;
 }
 
