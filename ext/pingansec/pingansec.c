@@ -148,7 +148,7 @@ PHP_PINGANSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
         len = ZSTR_LEN(name);
         return zend_symtable_str_find(target, seg, len);
     }
-    return NUll;
+    return NULL;
 }
 /* }}} */
 
