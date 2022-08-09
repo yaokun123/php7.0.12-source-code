@@ -102,6 +102,43 @@ static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
 }
 /* }}} */
 
+static void php_pingansec_hash_init(zval *zv, size_t size) /* {{{ */ {
+    HashTable *ht;
+    PALLOC_HASHTABLE(ht);
+    /* ZVAL_PTR_DTOR is necessary in case that this array be cloned */
+    zend_hash_init(ht, size, NULL, ZVAL_PTR_DTOR, 1);
+#if PHP_VERSION_ID < 70300
+    GC_FLAGS(ht) |= (IS_ARRAY_IMMUTABLE | HASH_FLAG_STATIC_KEYS);
+#else
+    HT_FLAGS(ht) |= (IS_ARRAY_IMMUTABLE | HASH_FLAG_STATIC_KEYS);
+#endif
+#if PHP_VERSION_ID >= 70400
+    zend_hash_real_init(ht, 0);
+#endif
+#if PHP_VERSION_ID >= 70200
+    HT_ALLOW_COW_VIOLATION(ht);
+#endif
+#if PHP_VERSION_ID < 70300
+    GC_FLAGS(ht) &= ~HASH_FLAG_APPLY_PROTECTION;
+#endif
+
+#if PHP_VERSION_ID < 70300
+    GC_REFCOUNT(ht) = 2;
+#else
+    GC_SET_REFCOUNT(ht, 2);
+#endif
+
+    ZVAL_ARR(zv, ht);
+#if PHP_VERSION_ID < 70200
+    Z_TYPE_FLAGS_P(zv) = IS_TYPE_IMMUTABLE;
+#elif PHP_VERSION_ID < 70300
+    Z_TYPE_FLAGS_P(zv) = IS_TYPE_COPYABLE;
+#else
+	Z_TYPE_FLAGS_P(zv) = 0;
+#endif
+}
+/* }}} */
+
 static zend_string* php_pingansec_str_persistent(char *str, size_t len) /* {{{ */ {
     zend_string *key = zend_string_init(str, len, 1);
     if (key == NULL) {
@@ -117,9 +154,50 @@ static zend_string* php_pingansec_str_persistent(char *str, size_t len) /* {{{ *
 }
 /* }}} */
 
+static void php_pingansec_hash_copy(HashTable *target, HashTable *source) /* {{{ */ {
+    zend_string *key;
+    zend_long idx;
+    zval *element, rv;
+
+    ZEND_HASH_FOREACH_KEY_VAL(source, idx, key, element) {
+        php_pingansec_zval_persistent(element, &rv);
+        if (key) {
+            zend_hash_update(target, php_pingansec_str_persistent(ZSTR_VAL(key), ZSTR_LEN(key)), &rv);
+        } else {
+            zend_hash_index_update(target, idx, &rv);
+        }
+    } ZEND_HASH_FOREACH_END();
+} /* }}} */
+
+static void php_pingansec_zval_persistent(zval *zv, zval *rv) /* {{{ */ {
+    switch (Z_TYPE_P(zv)) {
+#if PHP_VERSION_ID < 70300
+        case IS_CONSTANT:
+#endif
+        case IS_STRING:
+            ZVAL_INTERNED_STR(rv, php_pingansec_str_persistent(Z_STRVAL_P(zv), Z_STRLEN_P(zv)));
+            break;
+        case IS_ARRAY:
+        {
+            php_pingansec_hash_init(rv, zend_hash_num_elements(Z_ARRVAL_P(zv)));
+            php_pingansec_hash_copy(Z_ARRVAL_P(rv), Z_ARRVAL_P(zv));
+            ZEND_ASSERT(0);
+        }
+            break;
+        case IS_RESOURCE:
+        case IS_OBJECT:
+        case _IS_BOOL:
+        case IS_LONG:
+        case IS_NULL:
+            ZEND_ASSERT(0);
+            break;
+    }
+} /* }}} */
+
 static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len, zval *zv) /* {{{ */ {
     zend_ulong idx;
     zval *element;
+    zval *pzval;
 
     if (ZEND_HANDLE_NUMERIC_STR(key, len, idx)) {
         if ((element = zend_hash_index_find(ht, idx))) {
@@ -134,7 +212,8 @@ static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len,
             ZVAL_COPY_VALUE(element, zv);
         } else {
             Z_TRY_ADDREF_P(zv);
-            element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), zv);
+            // php_pingansec_zval_persistent(zv, pzval);
+            element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), pzval);
         }
     }
 
@@ -164,7 +243,7 @@ PHP_PINGANSEC_API int php_pingansec_has(zend_string *name) /* {{{ */ {
 
 PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
     if (ini_containers) {
-        zval *pzval;
+        // zval *pzval;
         char *seg;
         zval *res = NULL;
         size_t len;
@@ -173,6 +252,7 @@ PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
 
         seg = ZSTR_VAL(name);
         len = ZSTR_LEN(name);
+
         res = php_pingansec_symtable_update(target, seg, len, zv);
         if (res){
             return 1;
