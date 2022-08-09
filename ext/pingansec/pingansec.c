@@ -232,6 +232,7 @@ PHP_METHOD(pingansec, get) {
     }
 
     val = php_pingansec_get(name);
+    Z_TRY_ADDREF_P(val);
     if (val) {
         RETURN_ZVAL(val, 0, 0);
     }
