@@ -89,6 +89,7 @@ static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
 static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
     switch (Z_TYPE_P(pzval)) {
         case IS_ARRAY:
+            Z_TRY_DELREF_P(pzval);
             // php_pingansec_hash_destroy(Z_ARRVAL_P(pzval));
             break;
         case IS_PTR:
