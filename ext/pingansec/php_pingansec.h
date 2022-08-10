@@ -68,7 +68,7 @@ ZEND_END_MODULE_GLOBALS(pingansec)
    You are encouraged to rename these macros something shorter, see
    examples in any other php module directory.
 */
-#define PINGANSEC_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(pingansec, v)
+// #define PINGANSEC_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(pingansec, v)
 
 #if defined(ZTS) && defined(COMPILE_DL_PINGANSEC)
 ZEND_TSRMLS_CACHE_EXTERN()
