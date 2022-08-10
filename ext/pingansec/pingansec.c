@@ -40,7 +40,7 @@ zend_class_entry *pingansec_ce;
 static void php_pingansec_zval_persistent(zval *zv, zval *rv);
 static void php_pingansec_zval_dtor(zval *pzval);
 
-// malloc hashtable size without api
+
 #define PALLOC_HASHTABLE(ht) do { \
 	(ht) = (HashTable*)pemalloc(sizeof(HashTable), 1); \
 } while(0)
@@ -63,7 +63,7 @@ ZEND_END_ARG_INFO()
 /* }}} */
 
 
-// hash table destory
+
 static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
     zend_string *key;
     zval *element;
@@ -75,21 +75,20 @@ static void php_pingansec_hash_destroy(HashTable *ht) /* {{{ */ {
 #endif
         ZEND_HASH_FOREACH_STR_KEY_VAL(ht, key, element) {
             if (key) {
-                free(key);  // free key
+                free(key);
             }
-            php_pingansec_zval_dtor(element);  // free value
+            php_pingansec_zval_dtor(element);
         } ZEND_HASH_FOREACH_END();
-        free(HT_GET_DATA_ADDR(ht));         // free hash
+        free(HT_GET_DATA_ADDR(ht));
     }
-    free(ht);               // destory hashtable variable
+    free(ht);
 }
 /* }}} */
 
-// zval free
+
 static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
     switch (Z_TYPE_P(pzval)) {
         case IS_ARRAY:
-            Z_TRY_DELREF_P(pzval);
             // php_pingansec_hash_destroy(Z_ARRVAL_P(pzval));
             break;
         case IS_PTR:
@@ -99,43 +98,6 @@ static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
         default:
             break;
     }
-}
-/* }}} */
-
-static void php_pingansec_hash_init(zval *zv, size_t size) /* {{{ */ {
-    HashTable *ht;
-    PALLOC_HASHTABLE(ht);
-    /* ZVAL_PTR_DTOR is necessary in case that this array be cloned */
-    zend_hash_init(ht, size, NULL, ZVAL_PTR_DTOR, 1);
-#if PHP_VERSION_ID < 70300
-    GC_FLAGS(ht) |= (IS_ARRAY_IMMUTABLE | HASH_FLAG_STATIC_KEYS);
-#else
-    HT_FLAGS(ht) |= (IS_ARRAY_IMMUTABLE | HASH_FLAG_STATIC_KEYS);
-#endif
-#if PHP_VERSION_ID >= 70400
-    zend_hash_real_init(ht, 0);
-#endif
-#if PHP_VERSION_ID >= 70200
-    HT_ALLOW_COW_VIOLATION(ht);
-#endif
-#if PHP_VERSION_ID < 70300
-    GC_FLAGS(ht) &= ~HASH_FLAG_APPLY_PROTECTION;
-#endif
-
-#if PHP_VERSION_ID < 70300
-    GC_REFCOUNT(ht) = 2;
-#else
-    GC_SET_REFCOUNT(ht, 2);
-#endif
-
-    ZVAL_ARR(zv, ht);
-#if PHP_VERSION_ID < 70200
-    Z_TYPE_FLAGS_P(zv) = IS_TYPE_IMMUTABLE;
-#elif PHP_VERSION_ID < 70300
-    Z_TYPE_FLAGS_P(zv) = IS_TYPE_COPYABLE;
-#else
-	Z_TYPE_FLAGS_P(zv) = 0;
-#endif
 }
 /* }}} */
 
@@ -154,50 +116,9 @@ static zend_string* php_pingansec_str_persistent(char *str, size_t len) /* {{{ *
 }
 /* }}} */
 
-static void php_pingansec_hash_copy(HashTable *target, HashTable *source) /* {{{ */ {
-    zend_string *key;
-    zend_long idx;
-    zval *element, rv;
-
-    ZEND_HASH_FOREACH_KEY_VAL(source, idx, key, element) {
-        php_pingansec_zval_persistent(element, &rv);
-        if (key) {
-            zend_hash_update(target, php_pingansec_str_persistent(ZSTR_VAL(key), ZSTR_LEN(key)), &rv);
-        } else {
-            zend_hash_index_update(target, idx, &rv);
-        }
-    } ZEND_HASH_FOREACH_END();
-} /* }}} */
-
-static void php_pingansec_zval_persistent(zval *zv, zval *rv) /* {{{ */ {
-    switch (Z_TYPE_P(zv)) {
-#if PHP_VERSION_ID < 70300
-        case IS_CONSTANT:
-#endif
-        case IS_STRING:
-            ZVAL_INTERNED_STR(rv, php_pingansec_str_persistent(Z_STRVAL_P(zv), Z_STRLEN_P(zv)));
-            break;
-        case IS_ARRAY:
-        {
-            php_pingansec_hash_init(rv, zend_hash_num_elements(Z_ARRVAL_P(zv)));
-            php_pingansec_hash_copy(Z_ARRVAL_P(rv), Z_ARRVAL_P(zv));
-            ZEND_ASSERT(0);
-        }
-            break;
-        case IS_RESOURCE:
-        case IS_OBJECT:
-        case _IS_BOOL:
-        case IS_LONG:
-        case IS_NULL:
-            ZEND_ASSERT(0);
-            break;
-    }
-} /* }}} */
-
 static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len, zval *zv) /* {{{ */ {
     zend_ulong idx;
     zval *element;
-    zval *pzval;
 
     if (ZEND_HANDLE_NUMERIC_STR(key, len, idx)) {
         if ((element = zend_hash_index_find(ht, idx))) {
@@ -211,11 +132,7 @@ static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len,
             php_pingansec_zval_dtor(element);
             ZVAL_COPY_VALUE(element, zv);
         } else {
-            Z_TRY_ADDREF_P(zv);
-            element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), pzval);
-
-            // php_pingansec_zval_persistent(zv, pzval);
-            // element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), pzval);
+            element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), zv);
         }
     }
 
@@ -242,10 +159,11 @@ PHP_PINGANSEC_API zval *php_pingansec_get(zend_string *name) /* {{{ */ {
 PHP_PINGANSEC_API int php_pingansec_has(zend_string *name) /* {{{ */ {
     return php_pingansec_get(name) != NULL;
 }
+/* }}} */
 
 PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
     if (ini_containers) {
-        // zval *pzval;
+        zval *pzval;
         char *seg;
         zval *res = NULL;
         size_t len;
@@ -254,7 +172,6 @@ PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
 
         seg = ZSTR_VAL(name);
         len = ZSTR_LEN(name);
-
         res = php_pingansec_symtable_update(target, seg, len, zv);
         if (res){
             return 1;
@@ -310,7 +227,6 @@ PHP_METHOD(pingansec, get) {
     zval *val = NULL;
 
     // S    ->  zend_string
-    // z    ->
     if (zend_parse_parameters(ZEND_NUM_ARGS(), "S", &name) == FAILURE) {
         return;
     }
@@ -354,12 +270,14 @@ PHP_METHOD(pingansec, set) {
 /* }}} */
 
 
+/* {{{  pingansec_methods */
 zend_function_entry pingansec_methods[] = {
         PHP_ME(pingansec, get, php_pingansec_get_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
         PHP_ME(pingansec, has, php_pingansec_has_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
         PHP_ME(pingansec, set, php_pingansec_set_arginfo, ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
         {NULL, NULL, NULL}
 };
+/* }}} */
 
 
 // module_startup_func
@@ -372,7 +290,7 @@ PHP_MINIT_FUNCTION(pingansec)
 
     PALLOC_HASHTABLE(ini_containers);
     zend_hash_init(ini_containers, 8, NULL, NULL, 1);
-	return SUCCESS;
+    return SUCCESS;
 }
 
 
@@ -385,39 +303,39 @@ PHP_MSHUTDOWN_FUNCTION(pingansec)
     if (ini_containers) {
         php_pingansec_hash_destroy(ini_containers);
     }
-	return SUCCESS;
+    return SUCCESS;
 }
 /* }}} */
 
 
-// request_startup_func
+
 PHP_RINIT_FUNCTION(pingansec)
 {
 #if defined(COMPILE_DL_PINGANSEC) && defined(ZTS)
-	ZEND_TSRMLS_CACHE_UPDATE();
+                ZEND_TSRMLS_CACHE_UPDATE();
 #endif
-	return SUCCESS;
+                return SUCCESS;
 }
 
-// request_shutdown_func
+
 PHP_RSHUTDOWN_FUNCTION(pingansec)
-{
-	return SUCCESS;
-}
+        {
+                return SUCCESS;
+        }
 
 
 PHP_MINFO_FUNCTION(pingansec)
-{
-	php_info_print_table_start();
-	php_info_print_table_header(2, "pingansec support", "enabled");
-    php_info_print_table_row(2, "version", PHP_PINGANSEC_VERSION);
-    php_info_print_table_row(2, "author", "yaok");
-	php_info_print_table_end();
+        {
+                php_info_print_table_start();
+        php_info_print_table_header(2, "pingansec support", "enabled");
+        php_info_print_table_row(2, "version", PHP_PINGANSEC_VERSION);
+        php_info_print_table_row(2, "author", "yaok");
+        php_info_print_table_end();
 
-	/* Remove comments if you have entries in php.ini
-	DISPLAY_INI_ENTRIES();
-	*/
-}
+                /* Remove comments if you have entries in php.ini
+                DISPLAY_INI_ENTRIES();
+                */
+        }
 
 
 /*const zend_function_entry pingansec_functions[] = {
@@ -428,16 +346,16 @@ PHP_MINFO_FUNCTION(pingansec)
 
 // pingansec_module_entry
 zend_module_entry pingansec_module_entry = {
-	STANDARD_MODULE_HEADER,
-	"pingansec",
-	NULL,               // unused function, only used method
-	PHP_MINIT(pingansec),
-	PHP_MSHUTDOWN(pingansec),
-	PHP_RINIT(pingansec),		/* Replace with NULL if there's nothing to do at request start */
-	PHP_RSHUTDOWN(pingansec),	/* Replace with NULL if there's nothing to do at request end */
-	PHP_MINFO(pingansec),
-	PHP_PINGANSEC_VERSION,
-	STANDARD_MODULE_PROPERTIES
+        STANDARD_MODULE_HEADER,
+        "pingansec",
+        NULL,               // unused function, only used method
+        PHP_MINIT(pingansec),
+        PHP_MSHUTDOWN(pingansec),
+        PHP_RINIT(pingansec),		/* Replace with NULL if there's nothing to do at request start */
+        PHP_RSHUTDOWN(pingansec),	/* Replace with NULL if there's nothing to do at request end */
+        PHP_MINFO(pingansec),
+        PHP_PINGANSEC_VERSION,
+        STANDARD_MODULE_PROPERTIES
 };
 
 
