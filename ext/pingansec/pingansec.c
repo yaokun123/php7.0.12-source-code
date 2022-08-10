@@ -212,8 +212,10 @@ static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len,
             ZVAL_COPY_VALUE(element, zv);
         } else {
             Z_TRY_ADDREF_P(zv);
-            // php_pingansec_zval_persistent(zv, pzval);
             element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), pzval);
+
+            // php_pingansec_zval_persistent(zv, pzval);
+            // element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), pzval);
         }
     }
 
