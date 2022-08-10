@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("pasec", "for pasec support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("pasec", "enable pasec support", "no");
+
+if (PHP_PASEC != "no") {
+	EXTENSION("pasec", "pasec.c", PHP_EXTNAME_SHARED, "/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1");
+}
+
