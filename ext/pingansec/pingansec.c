@@ -312,30 +312,30 @@ PHP_MSHUTDOWN_FUNCTION(pingansec)
 PHP_RINIT_FUNCTION(pingansec)
 {
 #if defined(COMPILE_DL_PINGANSEC) && defined(ZTS)
-                ZEND_TSRMLS_CACHE_UPDATE();
+    ZEND_TSRMLS_CACHE_UPDATE();
 #endif
-                return SUCCESS;
+    return SUCCESS;
 }
 
 
 PHP_RSHUTDOWN_FUNCTION(pingansec)
-        {
-                return SUCCESS;
-        }
+{
+    return SUCCESS;
+}
 
 
 PHP_MINFO_FUNCTION(pingansec)
-        {
-                php_info_print_table_start();
-        php_info_print_table_header(2, "pingansec support", "enabled");
-        php_info_print_table_row(2, "version", PHP_PINGANSEC_VERSION);
-        php_info_print_table_row(2, "author", "yaok");
-        php_info_print_table_end();
+{
+    php_info_print_table_start();
+    php_info_print_table_header(2, "pingansec support", "enabled");
+    php_info_print_table_row(2, "version", PHP_PINGANSEC_VERSION);
+    php_info_print_table_row(2, "author", "yaok");
+    php_info_print_table_end();
 
-                /* Remove comments if you have entries in php.ini
-                DISPLAY_INI_ENTRIES();
-                */
-        }
+    /* Remove comments if you have entries in php.ini
+    DISPLAY_INI_ENTRIES();
+    */
+}
 
 
 /*const zend_function_entry pingansec_functions[] = {
