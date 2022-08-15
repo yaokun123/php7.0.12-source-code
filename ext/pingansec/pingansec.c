@@ -325,6 +325,21 @@ PHP_MINIT_FUNCTION(pingansec)
 
     PALLOC_HASHTABLE(ini_containers);
     zend_hash_init(ini_containers, 8, NULL, NULL, 1);
+
+
+    const char *dirname;
+    size_t dirlen;
+    zend_stat_t dir_sb = {0};
+    if ((dirname = PINGANSEC_G(directory)) && (dirlen = strlen(dirname))
+#ifndef ZTS
+			&& !VCWD_STAT(dirname, &dir_sb) && S_ISDIR(dir_sb.st_mode)
+#endif
+			) {
+#ifndef ZTS
+        YACONF_G(directory_mtime) = dir_sb.st_mtime;
+        YACONF_G(last_check) = time(NULL);
+#endif
+    }
     return SUCCESS;
 }
 
