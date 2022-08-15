@@ -319,6 +319,7 @@ zend_function_entry pingansec_methods[] = {
 PHP_MINIT_FUNCTION(pingansec)
 {
     zend_class_entry ce;
+    REGISTER_INI_ENTRIES();
     INIT_CLASS_ENTRY(ce, "Pingansec", pingansec_methods);
     pingansec_ce = zend_register_internal_class_ex(&ce, NULL);
 
