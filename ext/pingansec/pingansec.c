@@ -93,8 +93,7 @@ static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
             break;
         case IS_PTR:
         case IS_STRING:
-            //free(Z_PTR_P(pzval));
-            // free(pzval);
+            free(Z_PTR_P(pzval));
             break;
         default:
             break;
@@ -337,7 +336,7 @@ PHP_MINIT_FUNCTION(pingansec)
 PHP_MSHUTDOWN_FUNCTION(pingansec)
 {
     if (ini_containers) {
-        // php_pingansec_hash_destroy(ini_containers);
+        php_pingansec_hash_destroy(ini_containers);
     }
     return SUCCESS;
 }
@@ -347,9 +346,27 @@ PHP_MSHUTDOWN_FUNCTION(pingansec)
 
 PHP_RINIT_FUNCTION(pingansec)
 {
-#if defined(COMPILE_DL_PINGANSEC) && defined(ZTS)
-    ZEND_TSRMLS_CACHE_UPDATE();
-#endif
+    if(PINGANSEC_G(check_delay) && (time(NULL) - PINGANSEC_G(last_check) < PINGANSEC_G(check_delay))){
+        PINGANSEC_DEBUG("check delay doesn't execeed, ignore");
+    }else{  // check for clean store
+        char *dirname;
+        zend_stat_t dir_sb = {0};
+
+        PINGANSEC_G(last_check) = time(NULL);
+
+        // must set directory
+        if ((dirname = PINGANSEC_G(directory)) && !VCWD_STAT(dirname, &dir_sb) && S_ISDIR(dir_sb.st_mode)) {
+            if (dir_sb.st_mtime == PINGANSEC_G(directory_mtime)) {
+                PINGANSEC_DEBUG("directory is not modefied");
+                return SUCCESS;
+            }else{
+                PINGANSEC_G(directory_mtime) = dir_sb.st_mtime;
+                php_pingansec_hash_destroy(ini_containers);
+            }
+        }
+        PINGANSEC_DEBUG("directory need setting in .ini");
+    }
+}
     return SUCCESS;
 }
 

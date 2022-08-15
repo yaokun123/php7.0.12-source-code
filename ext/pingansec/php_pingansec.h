@@ -40,6 +40,13 @@ extern zend_module_entry pingansec_module_entry;
 
 #define PHP_PINGANSEC_VERSION "0.1.0" /* Replace with version number for your extension */
 
+#ifdef PINGANSEC_DEBUG
+#undef PINGANSEC_DEBUG
+#define PINGANSEC_DEBUG(m) fprintf(stderr, "%s\n", m);
+#else
+#define PINGANSEC_DEBUG(m)
+#endif
+
 #ifdef ZTS
 #include "TSRM.h"
 #endif
