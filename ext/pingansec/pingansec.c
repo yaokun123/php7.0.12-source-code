@@ -214,11 +214,14 @@ PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *value) /* {{{ *
 /* }}} */
 
 /* Remove comments and fill if you need to have entries in php.ini
-PHP_INI_BEGIN()
-    STD_PHP_INI_ENTRY("pingansec.global_value",      "42", PHP_INI_ALL, OnUpdateLong, global_value, zend_pingansec_globals, pingansec_globals)
-    STD_PHP_INI_ENTRY("pingansec.global_string", "foobar", PHP_INI_ALL, OnUpdateString, global_string, zend_pingansec_globals, pingansec_globals)
-PHP_INI_END()
 */
+PHP_INI_BEGIN()
+    STD_PHP_INI_ENTRY("pingansec.directory", "", PHP_INI_SYSTEM, OnUpdateString, directory, zend_pingansec_globals, pingansec_globals)
+#ifndef ZTS
+    STD_PHP_INI_ENTRY("pingansec.check_delay", "1000", PHP_INI_SYSTEM, OnUpdateLong, check_delay, zend_pingansec_globals, pingansec_globals)
+#endif
+PHP_INI_END()
+/* }}} */
 
 
 /*PHP_FUNCTION(confirm_pingansec_compiled)
