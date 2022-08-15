@@ -380,7 +380,10 @@ PHP_RINIT_FUNCTION(pingansec)
                 // clean
                 PINGANSEC_G(directory_mtime) = dir_sb.st_mtime;
                 php_pingansec_hash_destroy(ini_containers);
-                ini_containers = NULL;
+
+                // ini_containers = NULL;
+                PALLOC_HASHTABLE(ini_containers);
+                zend_hash_init(ini_containers, 8, NULL, NULL, 1);
             }
         }
         PINGANSEC_DEBUG("directory need setting in .ini");
