@@ -336,8 +336,8 @@ PHP_MINIT_FUNCTION(pingansec)
 #endif
 			) {
 #ifndef ZTS
-        YACONF_G(directory_mtime) = dir_sb.st_mtime;
-        YACONF_G(last_check) = time(NULL);
+        PINGANSEC_G(directory_mtime) = dir_sb.st_mtime;
+        PINGANSEC_G(last_check) = time(NULL);
 #endif
     }
     return SUCCESS;
