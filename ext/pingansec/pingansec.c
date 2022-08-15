@@ -301,7 +301,7 @@ PHP_METHOD(pingansec, set) {
         RETURN_FALSE;
     }
 
-    ZVAL_STR(z, value)
+    ZVAL_STR(z, value);
 
     RETURN_BOOL(php_pingansec_set(name, z));
 }
