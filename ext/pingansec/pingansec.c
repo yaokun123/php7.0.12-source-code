@@ -399,9 +399,7 @@ PHP_MINFO_FUNCTION(pingansec)
     php_info_print_table_row(2, "author", "yaok");
     php_info_print_table_end();
 
-    /* Remove comments if you have entries in php.ini
     DISPLAY_INI_ENTRIES();
-    */
 }
 
 
