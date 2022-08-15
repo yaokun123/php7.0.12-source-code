@@ -366,7 +366,6 @@ PHP_RINIT_FUNCTION(pingansec)
         }
         PINGANSEC_DEBUG("directory need setting in .ini");
     }
-}
     return SUCCESS;
 }
 
