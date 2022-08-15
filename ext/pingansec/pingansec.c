@@ -28,8 +28,8 @@
 #include "php_pingansec.h"
 
 /* If you declare any globals in php_pingansec.h uncomment this:
-ZEND_DECLARE_MODULE_GLOBALS(pingansec)
 */
+ZEND_DECLARE_MODULE_GLOBALS(pingansec)
 
 /* True global resources - no need for thread safety here */
 static int le_pingansec;

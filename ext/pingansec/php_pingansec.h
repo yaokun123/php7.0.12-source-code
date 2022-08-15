@@ -48,7 +48,6 @@ extern zend_module_entry pingansec_module_entry;
 // Declare any global variables
 ZEND_BEGIN_MODULE_GLOBALS(pingansec)
     char *directory;
-    int   parse_err;
 #ifndef ZTS
     long   check_delay;
     time_t last_check;
