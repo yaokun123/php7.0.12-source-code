@@ -293,14 +293,17 @@ PHP_METHOD(pingansec, has) {
 */
 PHP_METHOD(pingansec, set) {
     zend_string *name;
-    // zend_string *value;
-    zval *value;
+    zend_string *value;
+    // zval *value;
+    zval *z;
 
-    if (zend_parse_parameters(ZEND_NUM_ARGS(), "Sz", &name, &value) == FAILURE) {
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "SS", &name, &value) == FAILURE) {
         RETURN_FALSE;
     }
 
-    RETURN_BOOL(php_pingansec_set(name, value));
+    ZVAL_STR(z, value)
+
+    RETURN_BOOL(php_pingansec_set(name, z));
 }
 /* }}} */
 
