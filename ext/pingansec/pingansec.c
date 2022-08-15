@@ -376,8 +376,11 @@ PHP_RINIT_FUNCTION(pingansec)
                 PINGANSEC_DEBUG("directory is not modefied");
                 return SUCCESS;
             }else{
+
+                // clean
                 PINGANSEC_G(directory_mtime) = dir_sb.st_mtime;
                 php_pingansec_hash_destroy(ini_containers);
+                ini_containers = NULL;
             }
         }
         PINGANSEC_DEBUG("directory need setting in .ini");
