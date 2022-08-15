@@ -58,7 +58,7 @@ ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(php_pingansec_set_arginfo, 0, 0, 2)
     ZEND_ARG_INFO(0, name)
-    ZEND_ARG_INFO(0, value)
+    ZEND_ARG_ARRAY_INFO(0, arr, 0)
 ZEND_END_ARG_INFO()
 /* }}} */
 
@@ -93,8 +93,7 @@ static void php_pingansec_zval_dtor(zval *pzval) /* {{{ */ {
             break;
         case IS_PTR:
         case IS_STRING:
-            //free(Z_PTR_P(pzval));
-            // free(pzval);
+            free(Z_PTR_P(pzval));
             break;
         default:
             break;
@@ -117,30 +116,11 @@ static zend_string* php_pingansec_str_persistent(char *str, size_t len) /* {{{ *
 }
 /* }}} */
 
-static void php_pingansec_zval_persistent(zval *zv, zval *rv) /* {{{ */ {
-    switch (Z_TYPE_P(zv)) {
-#if PHP_VERSION_ID < 70300
-        case IS_CONSTANT:
-#endif
-        case IS_STRING:
-            ZVAL_INTERNED_STR(rv, php_pingansec_str_persistent(Z_STRVAL_P(zv), Z_STRLEN_P(zv)));
-            break;
-        case IS_ARRAY:
-        case IS_RESOURCE:
-        case IS_OBJECT:
-        case _IS_BOOL:
-        case IS_LONG:
-        case IS_NULL:
-            ZEND_ASSERT(0);
-            break;
-    }
-} /* }}} */
-
-static zval* php_pingansec_symtable_update(HashTable *ht, char *k_v, size_t k_l, zval *value) /* {{{ */ {
+static zval* php_pingansec_symtable_update(HashTable *ht, char *key, size_t len, zval *zv) /* {{{ */ {
+    zend_ulong idx;
     zval *element;
 
-    // zend_ulong idx;
-    /*if (ZEND_HANDLE_NUMERIC_STR(key, len, idx)) {
+    if (ZEND_HANDLE_NUMERIC_STR(key, len, idx)) {
         if ((element = zend_hash_index_find(ht, idx))) {
             php_pingansec_zval_dtor(element);
             ZVAL_COPY_VALUE(element, zv);
@@ -154,15 +134,7 @@ static zval* php_pingansec_symtable_update(HashTable *ht, char *k_v, size_t k_l,
         } else {
             element = zend_hash_add(ht, php_pingansec_str_persistent(key, len), zv);
         }
-    }*/
-    //element = zend_hash_add(ht, php_pingansec_str_persistent(k_v, k_l), zv);
-
-    //zval *rv = (zval *)malloc(sizeof(zval));
-    //ZVAL_STRINGL(rv, v_v, v_l);
-
-    zval rv;
-    php_pingansec_zval_persistent(value, &rv);
-    element = zend_hash_update(ht, php_pingansec_str_persistent(k_v, k_l), &rv);
+    }
 
     return element;
 }
@@ -189,22 +161,18 @@ PHP_PINGANSEC_API int php_pingansec_has(zend_string *name) /* {{{ */ {
 }
 /* }}} */
 
-PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *value) /* {{{ */ {
+PHP_PINGANSEC_API int php_pingansec_set(zend_string *name, zval *zv) /* {{{ */ {
     if (ini_containers) {
-        HashTable *target = ini_containers;
+        zval *pzval;
+        char *seg;
         zval *res = NULL;
+        size_t len;
+        HashTable *target = ini_containers;
 
-        char *k_v,*v_v;
-        size_t k_l,v_l;
 
-        k_v = ZSTR_VAL(name);   // (zstr)->val
-        k_l = ZSTR_LEN(name);   // (zstr)->len
-
-        //v_v = ZSTR_VAL(value);
-        //v_l = ZSTR_LEN(value);
-
-        //res = php_pingansec_symtable_update(target, k_v, k_l, v_v, v_l);
-        res = php_pingansec_symtable_update(target, k_v, k_l, value);
+        seg = ZSTR_VAL(name);
+        len = ZSTR_LEN(name);
+        res = php_pingansec_symtable_update(target, seg, len, zv);
         if (res){
             return 1;
         }
@@ -291,14 +259,13 @@ PHP_METHOD(pingansec, has) {
 */
 PHP_METHOD(pingansec, set) {
     zend_string *name;
-    // zend_string *value;
-    zval *value;
+    zval        *arr;
 
-    if (zend_parse_parameters(ZEND_NUM_ARGS(), "Sz", &name, &value) == FAILURE) {
+    if (zend_parse_parameters(ZEND_NUM_ARGS(), "Sa", &name, &arr) == FAILURE) {
         RETURN_FALSE;
     }
 
-    RETURN_BOOL(php_pingansec_set(name, value));
+    RETURN_BOOL(php_pingansec_set(name, arr));
 }
 /* }}} */
 
@@ -334,7 +301,7 @@ PHP_MINIT_FUNCTION(pingansec)
 PHP_MSHUTDOWN_FUNCTION(pingansec)
 {
     if (ini_containers) {
-        // php_pingansec_hash_destroy(ini_containers);
+        php_pingansec_hash_destroy(ini_containers);
     }
     return SUCCESS;
 }
